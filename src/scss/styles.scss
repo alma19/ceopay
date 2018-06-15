@@ -1,0 +1,141 @@
+  /*                       */
+ /* Default style imports */
+/*                       */
+
+@import 'base';
+
+
+// Should get Hancock to embed these in base, at some point:
+
+@import 'header';
+@import 'footer';
+
+@import 'components/side-blocks';
+@import 'components/breakouts';
+
+
+  /*                         */
+ /* Project-specific styles */
+/*                         */
+
+// Enter your custom styles here.
+// .container {
+//   max-width: 1100px;
+//   margin: 0 auto;
+// }
+// .cards {
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin-top: 15px;
+//   padding: 1.5%;
+//   box-sizing: border-box;
+// }
+// .card {
+//   @media (max-width: 700px) {
+//     width: 100%;
+//   }
+//   position: relative;
+//   background-color: #fefff9;
+//   // width: 500px;
+//   height: 300px;
+//   // border: 1px solid #000;
+//   // border-radius: 4px;
+//   overflow: hidden;
+//
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .card-header {
+//   font-size: 12px;
+//   font-weight: 600;
+//   border-bottom: 1px solid #000;
+//   background-color: #ffbee;
+//   padding: 5px 10px;
+// }
+//
+// .card-main {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 15px 0 0 10px;
+// }
+
+
+.card {
+  border-radius: .50rem;
+  height: 500px
+
+}
+.card-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.revenue {
+  font-size: 12px;
+  float: right;
+}
+
+.shift-right {
+  float: right
+}
+
+.small-font {
+  font-size: 12px;
+}
+// .card-text {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.ceo-pic {
+  height:100px;
+  border-radius: 50%;
+  display: inline;
+  margin-bottom: 5px;
+}
+
+.ceo-pay {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.employee-pay {
+  margin-top: 10px;
+}
+
+
+.pay-info {
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.ratio {
+  font-size: 14px; 
+}
+.ceo-info {
+  padding-top: 10px;
+}
+
+.fas {
+  padding-bottom: 5px
+}
+
+// second card styles
+
+.ceo-pic-center {
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.ceo-name-center {
+  font-size: 2em;
+  justify-content: center;
+}
