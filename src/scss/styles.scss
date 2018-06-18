@@ -63,14 +63,28 @@
 // }
 
 
-.card {
-  border-radius: .50rem;
-  height: 500px
-
+.cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.card {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-radius: .50rem;
+  overflow: hidden;
+  // height: 300px;
+  margin: 5px;
+}
+
+
 .card-title {
   font-size: 2em;
-  margin-bottom: 20px;
+  margin: 10px 10px 10px 10px;
 }
 
 .revenue {
@@ -90,6 +104,12 @@
 //   justify-content: space-between;
 // }
 
+.row{
+  display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-around;
+}
+
 .ceo-pic {
   height:100px;
   border-radius: 50%;
@@ -97,24 +117,29 @@
   margin-bottom: 5px;
 }
 
-.ceo-pay {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.employee-pay {
-  margin-top: 10px;
-}
-
-
 .pay-info {
   padding-bottom: 5px;
   text-align: center;
   font-size: 1.5em;
+  margin-top: 10px;
+  width: 200px;
 }
 
+// .ceo-pay {
+//   text-align: center;
+//   margin-top: 10px;
+//   width: 200px;
+// }
+
+// .employee-pay {
+//   margin-top: 10px;
+//   width: 200px;
+// }
+
+
 .ratio {
-  font-size: 14px; 
+  font-size: 12px;
+  margin: 0 5px 5px 0 ;
 }
 .ceo-info {
   padding-top: 10px;
@@ -122,6 +147,12 @@
 
 .fas {
   padding-bottom: 5px
+}
+
+
+.icons {
+  margin: 5px;
+  font-size: 1.5em;
 }
 
 // second card styles
@@ -136,6 +167,7 @@
 }
 
 .ceo-name-center {
+  display: flex;
   font-size: 2em;
   justify-content: center;
 }
