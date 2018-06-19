@@ -208,6 +208,7 @@ img {
     }
 }
 
+
 .pay {
   margin: 1rem;
   width: 30%;
@@ -217,12 +218,22 @@ img {
 .pay-info-row {
   padding-bottom: 5px;
   font-size: 1.5em;
-  margin: 10px 0 0 10px;
-  width: 100%;
+  margin: 0 auto;
+  width: 90%;
 
   p {
-    padding-bottom: 3px;
+    padding-bottom: .5rem;
+    font-family: $sans;
   }
+}
+
+.pay-row {
+  width: 45%; 
+}
+
+.need-flex {
+  display: flex;
+  justify-content: space-around;
 }
 
 
