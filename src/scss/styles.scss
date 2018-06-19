@@ -10,8 +10,7 @@
 @import 'header';
 @import 'footer';
 
-@import 'components/side-blocks';
-@import 'components/breakouts';
+
 
 
   /*                         */
@@ -62,7 +61,12 @@
 //   padding: 15px 0 0 10px;
 // }
 
+/* sort option (select boxes) styles */
+.sort-options {
+  display: flex;
+}
 
+/* card styles*/
 .cards {
   width: 100%;
   display: flex;
@@ -71,7 +75,7 @@
 }
 
 .card {
-  width: 700px;
+  width: 600px;
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
@@ -179,7 +183,6 @@
   font-size: 1.5em;
 }
 
-// second card styles
 
 .ceo-pic-center {
   height: 100px;
