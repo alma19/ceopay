@@ -89,6 +89,9 @@
     padding: 1rem;
     font-weight: bold;
   }
+  :hover {
+    background-color: $black215;
+  }
 }
 
 select {
@@ -136,25 +139,24 @@ select {
   padding-bottom: 5px;
 }
 
+h4 {
+  margin-bottom: .6rem;
+}
+
+
+img {
+  float: left;
+}
+
+
 .compare {
   float: right;
   cursor: pointer;
 }
-.revenue {
-  font-size: 12px;
-  float: right;
+
+.card-text {
+  margin-top: 1rem;
 }
-
-.shift-right {
-  float: right
-
-}
-
-
-// .card-text {
-//   display: flex;
-//   justify-content: space-between;
-// }
 
 .row{
   margin-top: 5px;
@@ -163,19 +165,21 @@ select {
   // justify-content: space-around;
 }
 
-h4 {
-  margin-bottom: .6rem;
-}
-
-img {
-  float: left;
-}
-
 .ceo-pic {
   height:100px;
   border-radius: 50%;
   display: inline;
   margin-right: 1rem;
+}
+
+.ceo-info {
+  float: left;
+  width: calc(100% - 145px);
+  font-weight: bold;
+
+  h6 {
+    margin-bottom: .3rem;
+  }
 }
 
 
@@ -216,8 +220,9 @@ img {
 
 
 .pay-info-row {
-  padding-bottom: 5px;
-  font-size: 1.5em;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   margin: 0 auto;
   width: 90%;
 
@@ -227,48 +232,28 @@ img {
   }
 }
 
+.employee-icons {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $black215;
+}
+
 .pay-row {
-  width: 45%; 
+  width: 45%;
 }
 
 .need-flex {
   display: flex;
-  justify-content: space-around;
-}
-
-
-// .ceo-pay {
-//   text-align: center;
-//   margin-top: 10px;
-//   width: 200px;
-// }
-
-// .employee-pay {
-//   margin-top: 10px;
-//   width: 200px;
-// }
-
-
-.ratio {
-  // font-size: 1rem;
-  // margin: 0 5px 5px 0 ;
-  float: right;
-  margin: 1rem;
-}
-
-.ceo-info {
-  float: left;
-  width: calc(100% - 145px);
+  justify-content: space-between;
 }
 
 
 .fas {
-  padding-bottom: 5px
+  padding-bottom: 5px;
+  margin: .2rem;
 }
 
 
 .icons {
+  margin-top: .6rem;
   text-align: justify;
-  // margin: 5px;
-  // font-size: 1.5em;
 }

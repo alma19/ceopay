@@ -117,6 +117,59 @@ googletag.cmd.push(function () {
 
 
 {%block content%}
+
+{% raw %}
+<script id="ceo-card-template" type="text/x-handlebars-template">
+  <div class="card" id="card-{{photo}}">
+    <div class="card-body">
+      <div class="card-title clearfix">
+        <div class="compare">
+          <i class="fas fa-plus-circle fa-2x"></i>
+        </div>
+        <img src="images/headshots/{{photo}}.jpg" class="ceo-pic" />
+          <div class="ceo-info">
+            <h4>{{ceoname}}</h4>
+            <h6>{{company}} {{# if sector }}({{sector}}){{/if}}</h6>
+            <h6>Compensation:  {{#if ceopay}} ${{formatNumber ceopay}} {{/if}}</h6>
+            <h6>Company Revenue: ${{revenues}}</h6>
+          </div>
+      </div>
+
+      <div class="card-text">
+        <div class="row"> <!--ceo and employee pay row-->
+          <div class="pay-info-row employee-icons">
+            <p><strong>Median Employee Compsensation: {{#if medianpay}} ${{formatNumber medianpay}} {{/if}}</strong></p>
+            <p>{{namePossessive ceoname}} compensation could pay for <strong>{{employeeratio}}</strong> median employee salaries.</p>
+            <div class="employee icons">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="pay-info-row need-flex">
+            <div class="pay-row">
+              <p><strong>Dallas ISD </strong></p>
+              <p>{{namePossessive ceoname}} compensation could pay for <strong>{{teacherratio}}</strong> median employee salaries.</p>
+              <div class="teacher icons">
+
+              </div> <!--icons -->
+            </div>
+            <div class="pay-row">
+              <p><strong>Dallas Police Department</strong></p>
+              <p>{{namePossessive ceoname}} compensation could pay for <strong>{{policeratio}}</strong> median uniform salaries.</p>
+              <div class="police icons">
+              </div> <!--icons -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!--single card -->
+
+</script>
+{% endraw %}
+
 <section id="content-header">
 	<img src="images/_defaultImage.jpg" alt="#" />
 	<p class="cutline">Cutline goes here. You can remove this tag if you don't feel the lead image needs a cutline</p>
@@ -208,596 +261,7 @@ googletag.cmd.push(function () {
 
 
 
-<div class="cards"> <!--row of cards-->
-
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title clearfix">
-        <div class="compare">
-          <i class="fas fa-plus-circle fa-2x"></i>
-        </div>
-        <img src="images/test-600.jpg" class="ceo-pic" />
-          <div class="ceo-info">
-            <h4><strong>Jay Adair</strong></h4>
-            <h6>Copart (Auto Sector)</h6>
-            <h6><strong>Compsensation: $1,000,000</strong></h6>
-            <h6>Company Revenue: $300,000,000</h6>
-          </div>
-      </div>
-      <div class="card-text">
-        <div class="row"> <!--ceo and employee pay row-->
-          <div class="pay-info-row">
-            <p><strong>Copart Median Employee Compsensation</strong></p>
-            <p>$50,000</p>
-            <p>With his compensation, Adair could pay for 20 median employee salaries.</p>
-            <div class="icons">
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row need-flex">
-            <div class="pay-row">
-              <p><strong>Dallas ISD </strong></p>
-              <!-- <p>$52,000</p> -->
-              <p>With his compensation, Adair could pay for 20 employee salaries.</p>
-              <div class="icons">
-                <i class="fas fa-user-graduate"></i>
-                <i class="fas fa-user-graduate"></i>
-                <i class="fas fa-user-graduate"></i>
-                <i class="fas fa-user-graduate"></i>
-              </div> <!--icons -->
-            </div>
-            <div class="pay-row">
-              <p><strong>Dallas Police Department</strong></p>
-              <!-- <p>$65,956</p> -->
-              <p>With his compensation, Adair could pay for 20 median employee salaries.</p>
-              <div class="icons">
-                <i class="fas fa-user-shield"></i>
-                <i class="fas fa-user-shield"></i>
-                <i class="fas fa-user-shield"></i>
-                <i class="fas fa-user-shield"></i>
-              </div> <!--icons -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!--single card -->
-
-
-
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title clearfix">
-        <div class="compare">
-          <i class="fas fa-plus-circle fa-2x"></i>
-        </div>
-        <img src="images/test-600.jpg" class="ceo-pic" />
-          <div class="ceo-info">
-            <h4><strong>Jay Adair</strong></h4>
-            <h6>Copart (Auto Sector)</h6>
-            <h6><strong>Compsensation: $1,000,000</strong></h6>
-            <h6>Company Revenue: $300,000,000</h6>
-          </div>
-      </div>
-      <div class="card-text">
-        <div class="row">
-          <div class="pay-info">
-            <div class="pay">
-              <p>Median Employee Compsensation</p>
-              <p>$50,000</p>
-              <p>20-to-1 CEO pay ratio</p>
-              <div class="icons">
-                <i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-<i class="fas fa-user  "></i>
-              </div>
-            </div>
-
-            <div class="pay">
-              <p>Median Teacher Compsensation</p>
-              <!-- <p>$52,000</p> -->
-              <p>20-to-1 CEO pay ratio</p>
-              <div class="icons">
-                <i class="fas fa-user-graduate"></i>
-                <i class="fas fa-user-graduate"></i>
-                <i class="fas fa-user-graduate"></i>
-                <i class="fas fa-user-graduate"></i>
-              </div> <!--icons -->
-            </div>
-            <div class="pay">
-              <p>Median Police Officer Compsensation</p>
-              <!-- <p>$65,956</p> -->
-              <p>20-to-1 CEO pay ratio</p>
-              <div class="icons">
-                <i class="fas fa-user-shield"></i>
-                <i class="fas fa-user-shield"></i>
-                <i class="fas fa-user-shield"></i>
-                <i class="fas fa-user-shield"></i>
-              </div> <!--icons -->
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> <!--single card -->
-
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title">
-          <p>Copart <span class="shift-right">Auto Sector</span></p>
-          <p>20,000 employees <span class="shift-right">$300,000,000<br /><span class="revenue">2017 revenue</span></span></p>
-          <!-- <p>Employees: 20,000</p>
-          <p>2017 Revenue: $300,000,000</p> -->
-          <!-- <span>$300,000,000<br /><span class="revenue">2017 revenue</span></span> -->
-
-      </div>
-      <div class="card-text">
-        <div class="row"> <!--row within card-->
-            <img src="images/test-600.jpg" class="ceo-pic-center" />
-        </div>
-        <div class="row ceo-name-center">
-          <p>Jay Adair</p>
-        </div>
-
-        <div class="row"> <!--ceo and employee pay row-->
-          <div class="pay-info-row">
-            <p>CEO Compensation</p>
-            <p>$1,000,000</p>
-            <div class="icons">
-              <i class="fas fa-user-tie"></i>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Employee Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$50,000</p>
-            <div class="icons">
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Teacher Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$30,000</p>
-            <div class="icons">
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-            </div> <!--icons -->
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Police Officer Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$30,000</p>
-            <div class="icons">
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-            </div> <!--icons -->
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> <!--single card -->
-
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title">
-          <p>Copart <span class="shift-right">Auto Sector</span></p>
-          <p>20,000 employees <span class="shift-right">$300,000,000<br /><span class="revenue">2017 revenue</span></span></p>
-          <!-- <p>Employees: 20,000</p>
-          <p>2017 Revenue: $300,000,000</p> -->
-          <!-- <span>$300,000,000<br /><span class="revenue">2017 revenue</span></span> -->
-
-      </div>
-      <div class="card-text">
-        <div class="row"> <!--row within card-->
-            <img src="images/test-600.jpg" class="ceo-pic-center" />
-        </div>
-        <div class="row ceo-name-center">
-          <p>Jay Adair</p>
-        </div>
-
-        <div class="row"> <!--ceo and employee pay row-->
-          <div class="pay-info-row">
-            <p>CEO Compensation</p>
-            <p>$1,000,000</p>
-            <div class="icons">
-              <i class="fas fa-user-tie"></i>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Employee Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$50,000</p>
-            <div class="icons">
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Teacher Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$30,000</p>
-            <div class="icons">
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-            </div> <!--icons -->
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Police Officer Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$30,000</p>
-            <div class="icons">
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-            </div> <!--icons -->
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> <!--single card -->
-
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title">
-          <p>Copart <span class="shift-right">Auto Sector</span></p>
-          <p>20,000 employees <span class="shift-right">$300,000,000<br /><span class="revenue">2017 revenue</span></span></p>
-          <!-- <p>Employees: 20,000</p>
-          <p>2017 Revenue: $300,000,000</p> -->
-          <!-- <span>$300,000,000<br /><span class="revenue">2017 revenue</span></span> -->
-
-      </div>
-      <div class="card-text">
-        <div class="row"> <!--row within card-->
-            <img src="images/test-600.jpg" class="ceo-pic-center" />
-        </div>
-        <div class="row ceo-name-center">
-          <p>Jay Adair</p>
-        </div>
-
-        <div class="row"> <!--ceo and employee pay row-->
-          <div class="pay-info-row">
-            <p>CEO Compensation</p>
-            <p>$1,000,000</p>
-            <div class="icons">
-              <i class="fas fa-user-tie"></i>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Employee Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$50,000</p>
-            <div class="icons">
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Teacher Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$30,000</p>
-            <div class="icons">
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-            </div> <!--icons -->
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Police Officer Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$30,000</p>
-            <div class="icons">
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-            </div> <!--icons -->
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> <!--single card -->
-
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title">
-          <p>Copart <span class="shift-right">Auto Sector</span></p>
-          <p>20,000 employees <span class="shift-right">$300,000,000<br /><span class="revenue">2017 revenue</span></span></p>
-          <!-- <p>Employees: 20,000</p>
-          <p>2017 Revenue: $300,000,000</p> -->
-          <!-- <span>$300,000,000<br /><span class="revenue">2017 revenue</span></span> -->
-
-      </div>
-      <div class="card-text">
-        <div class="row"> <!--row within card-->
-            <img src="images/test-600.jpg" class="ceo-pic-center" />
-        </div>
-        <div class="row ceo-name-center">
-          <p>Jay Adair</p>
-        </div>
-
-        <div class="row"> <!--ceo and employee pay row-->
-          <div class="pay-info-row">
-            <p>CEO Compensation</p>
-            <p>$1,000,000</p>
-            <div class="icons">
-              <i class="fas fa-user-tie"></i>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Employee Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$50,000</p>
-            <div class="icons">
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-              <i class="fas fa-user  "></i>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Teacher Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$30,000</p>
-            <div class="icons">
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-              <i class="fas fa-user-graduate"></i>
-            </div> <!--icons -->
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="pay-info-row">
-            <p>Police Officer Compensation <span class="ratio shift-right">20-to-1 CEO pay ratio</span></p>
-            <p>$30,000</p>
-            <div class="icons">
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-              <i class="fas fa-user-shield"></i>
-            </div> <!--icons -->
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> <!--single card -->
-
-
-
-
-</div> <!--row of cards-->
+<div class="cards"> </div>
 
 
 
