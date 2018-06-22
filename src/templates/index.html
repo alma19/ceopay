@@ -124,7 +124,7 @@ googletag.cmd.push(function () {
     <div class="card-body">
       <div class="card-title clearfix">
         <div class="compare">
-          <i class="fas fa-plus-circle fa-2x"></i>
+          <!-- <i class="fas fa-plus-circle fa-2x"></i> -->
         </div>
         <img src="images/headshots/{{photo}}.jpg" class="ceo-pic" />
           <div class="ceo-info">
@@ -225,10 +225,12 @@ googletag.cmd.push(function () {
 </div>
 
   <div class="sort-options">
+    <p id="showAll">SHOW ALL</p>
     <p>CEO COMPENSATION</p>
     <p>MEDIAN EMPLOYEE COMPSENTATION</p>
     <p>COMPANY REVENUE</p>
     <p>COMPANY SIZE</p>
+    <p>RESET</p>
 
     <!-- <div class="sorter">
       <span class="sorter-label">Sort by
@@ -261,7 +263,8 @@ googletag.cmd.push(function () {
 
 
 
-<div class="cards"> </div>
+<div class="cards" id="cards"> </div>
+<div class="hidden-cards"></div>
 
 
 
