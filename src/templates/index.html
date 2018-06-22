@@ -120,7 +120,7 @@ googletag.cmd.push(function () {
 
 {% raw %}
 <script id="ceo-card-template" type="text/x-handlebars-template">
-  <div class="card" id="card-{{id}}">
+  <div class="card card-{{class}}" id="card-{{id}}">
     <div class="card-body">
       <div class="card-title clearfix">
         <div class="compare">
@@ -230,37 +230,52 @@ googletag.cmd.push(function () {
 </div>
 
   <div class="sort-options">
-    <p>CEO COMPENSATION</p>
+    <p id="1mil">CEO COMPENSATION</p>
     <p>MEDIAN EMPLOYEE COMPSENTATION</p>
     <p>COMPANY REVENUE</p>
     <p>RESET</p>
 
-    <!-- <div class="sorter">
-      <span class="sorter-label">Sort by
-      <select class="sorter" id="industry-sort">
-        <option selected>
-          Industry
-        </option>
+    <div class="sorters">
+      <span class="sorter-label">CEO Compensation
+      <select class="sorter" id="ceo-sort">
+        <option value="all">All</option>
+        <option value="1mil">$0 - $1,000,000</option>
+        <option value="5mil">$1,000,000 - $5,000,000</option>
+        <option value="10mil">$5,000,000 - $10,000,000</option>
+        <option value="15mil">$10,000,000 - $15,000,000</option>
+        <option value="20mil">$15,000,000 - $20,000,000</option>
       </select>
       </span>
     </div>
 
     <div class="sorter">
-      <select class="sorter" id="size-sort">
+      <span class="sorter-label">Median Employee Compensation
+      <select class="sorter" id="employee-sort">
         <option selected>
-          Company Size
+          All
         </option>
       </select>
     </div>
 
 
     <div class="sorter">
+      <span class="sorter-label">Company Revenue
       <select class="sorter" id="revenue-sort">
         <option selected>
-          Company Revenue
+          All
         </option>
       </select>
-    </div> -->
+    </div>
+
+
+    <div class="sorter">
+      <span class="sorter-label">Industry
+      <select class="sorter" id="industry-sort">
+        <option selected>
+          All
+        </option>
+      </select>
+    </div>
 
   </div>
 
@@ -271,7 +286,7 @@ googletag.cmd.push(function () {
     <p id="showAll">SHOW ALL</p>
 </div>
 
-<div class="hidden-cards"></div>
+<div class="no-show hidden-cards"></div>
 
 
 

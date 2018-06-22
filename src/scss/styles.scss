@@ -80,22 +80,21 @@
   display: flex;
   flex-wrap: wrap;
   font-family: $sans;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   width: 90%;
-  cursor: pointer;
   p {
     margin: 1rem 1rem 1rem 0;
     background-color: $black235;
     padding: 1rem;
     font-weight: bold;
   }
-  :hover {
-    background-color: $black215;
+  .sorter-label {
+    font-weight: bold;
   }
 }
 
 select {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 0 .5rem;
 }
 
@@ -114,7 +113,10 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  display: none;
+}
+
+.no-show {
+  display: none!important;
 }
 
 .hidden-cards::before{
