@@ -117,6 +117,15 @@ select {
   display: none;
 }
 
+.hidden-cards::before{
+  overflow: hidden;
+  height: 50px;
+  background: black;
+  // background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), white);
+  // background: -o-linear-gradient(rgba(255, 255, 255, 0.5), white);
+  // background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), white);
+  // background: linear-gradient(rgba(255, 255, 255, 0.5), white); }
+}
 
 
 .card {
