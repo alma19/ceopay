@@ -114,6 +114,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  display: none;
 }
 
 .hidden-cards::before{
@@ -187,13 +188,12 @@ img {
 .ceo-pic {
   height:100px;
   border-radius: 50%;
-  display: inline;
+  float: left;
   margin-right: 1rem;
 }
 
 .ceo-info {
   float: left;
-  width: calc(100% - 145px);
   font-weight: bold;
 
   h6 {
