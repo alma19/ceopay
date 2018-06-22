@@ -9,9 +9,12 @@ const HandlebarsIntl = require('handlebars-intl');
 $(document).ready(() => {
   $('.hidden-cards').hide();
 
-  $('#showAll').click(function(){
+  $('#showAll').click(function () {
     $('.hidden-cards').show();
+    $('#showAll').hide();
   });
+
+// points.sort(function(a, b){return a - b});
 
 
   handlebars.registerHelper('namePossessive', (name) => {
@@ -31,13 +34,9 @@ $(document).ready(() => {
     const ceos = data;
     const ceos10 = data.splice(0, 10);
 
-    console.log(ceos10);
-    console.log(ceos);
-
     $.each(ceos10, (k, v) => {
       const cardHTML = cardTemplate(v);
       $('.cards').append(cardHTML);
-
 
       // setting up the ratios
       const medianemployees = v.employeeratio / 10;
@@ -91,9 +90,6 @@ $(document).ready(() => {
         $('<i class="fas fa-user-shield"></i>').appendTo($(`#card-${v.photo} .police`));
         // console.log(v.ceoname + ' ' + medianpolice);
       }
-
-
-      // first 10 div, rest are hidden
     });
   }
   $.ajax({
