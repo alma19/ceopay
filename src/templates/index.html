@@ -120,17 +120,22 @@ googletag.cmd.push(function () {
 
 {% raw %}
 <script id="ceo-card-template" type="text/x-handlebars-template">
-  <div class="card" id="card-{{photo}}">
+  <div class="card" id="card-{{id}}">
     <div class="card-body">
       <div class="card-title clearfix">
         <div class="compare">
           <!-- <i class="fas fa-plus-circle fa-2x"></i> -->
         </div>
-        <img src="images/headshots/{{photo}}.jpg" class="ceo-pic" />
+        {{#if multipleceos}}
+          {{multipleImages photo ceoname}}
+        {{else}}
+          <img src="images/headshots/{{photo}}.jpg" alt='{{ceoname}}' class="ceo-pic" />
+        {{/if}}
+
           <div class="ceo-info">
             <h4>{{ceoname}}</h4>
             <h6>{{company}} {{# if sector }}({{sector}}){{/if}}</h6>
-            <h6>Compensation:  {{#if ceopay}} ${{formatNumber ceopay}} {{/if}}</h6>
+            <h6>Compensation:  <span class="ceocomp">{{#if ceopay}} ${{formatNumber ceopay}} {{/if}}</span></h6>
             <h6>Company Revenue: ${{revenues}}</h6>
           </div>
       </div>
