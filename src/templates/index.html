@@ -120,7 +120,7 @@ googletag.cmd.push(function () {
 
 {% raw %}
 <script id="ceo-card-template" type="text/x-handlebars-template">
-  <div class="card card-{{class}}" id="card-{{id}}">
+  <div class="card card-{{class}}" id="card-{{class}}">
     <div class="card-body">
       <div class="card-title clearfix">
         <div class="compare">
@@ -229,45 +229,44 @@ googletag.cmd.push(function () {
   </div>
 </div>
 
-  <div class="sort-options">
-    <p id="1mil">CEO COMPENSATION</p>
+  <div class="sort-options filtering">
+    <!-- <p id="1mil">CEO COMPENSATION</p>
     <p>MEDIAN EMPLOYEE COMPSENTATION</p>
     <p>COMPANY REVENUE</p>
-    <p>RESET</p>
+    <p>RESET</p> -->
+
 
     <div class="sorters">
       <span class="sorter-label">CEO Compensation
-      <select class="sorter" id="ceo-sort">
-        <option value="all">All</option>
-        <option value="1mil">$0 - $1,000,000</option>
-        <option value="5mil">$1,000,000 - $5,000,000</option>
-        <option value="10mil">$5,000,000 - $10,000,000</option>
-        <option value="15mil">$10,000,000 - $15,000,000</option>
-        <option value="20mil">$15,000,000 - $20,000,000</option>
+      <select class="sorter cat1" id="ceo-filter">
+        <option value="cat-all">All</option>
+        <option value="cat-one">$0 - $1,000,000</option>
+        <option value="cat-five">$1,000,000 - $5,000,000</option>
+        <option value="cat-ten">$5,000,000 - $10,000,000</option>
+        <option value="cat-fifteen">$10,000,000 - $15,000,000</option>
+        <option value="cat-twenty">$15,000,000 - $20,000,000</option>
       </select>
       </span>
     </div>
 
     <div class="sorter">
       <span class="sorter-label">Median Employee Compensation
-      <select class="sorter" id="employee-sort">
-        <option selected>
-          All
-        </option>
+      <select class="sorter cat2" id="employee-sort">
+        <option>All</option>
       </select>
+    </span>
     </div>
 
 
     <div class="sorter">
       <span class="sorter-label">Company Revenue
-      <select class="sorter" id="revenue-sort">
-        <option selected>
-          All
-        </option>
+      <select class="sorter cat3" id="revenue-sort">
+        <option>All</option>
       </select>
+    </span>
     </div>
 
-
+<!--
     <div class="sorter">
       <span class="sorter-label">Industry
       <select class="sorter" id="industry-sort">
@@ -275,7 +274,7 @@ googletag.cmd.push(function () {
           All
         </option>
       </select>
-    </div>
+    </div> -->
 
   </div>
 
