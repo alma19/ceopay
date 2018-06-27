@@ -56,24 +56,21 @@ $(document).ready(() => {
     const teachercompensation = (52000 / maxEmployee) * 100;
     const policecompensation = (65956 / maxEmployee) * 100;
 
-    // apending handlebars
+    // apending icons and chart bars
     for (let i = 0; i < medianemployees; i += 1) {
       $('<i class="fas fa-user"></i>').appendTo($(`#card-${data.class} .employee`));
     }
-
 
     $(`#card-${data.class} .employee-bar`).css('width', `${employeecompensation}%`);
 
     $(`#card-${data.class} .teacher-bar`).css('width', `${teachercompensation}%`);
 
     $(`#card-${data.class} .police-bar`).css('width', `${policecompensation}%`);
-
-
   } // function appendIcons
 
   let maxEmployee = 0;
 
-  function findMax(data){
+  function findMax(data) {
     for (let i = 0; i < data.length; i += 1) {
       // data[i].id = i;
       data[i].class = i;
@@ -83,6 +80,11 @@ $(document).ready(() => {
     }
     drawCards(data);
     appendIcons(data);
+    assignCat(data);
+  }
+
+  function assignCat(data){
+    console.log(data); 
   }
   function drawCards(data) {
 
@@ -92,10 +94,9 @@ $(document).ready(() => {
     const teacherCompensation = maxEmployee / 52000;
     const policeCompensation = maxEmployee / 65956;
 
-
-
+    const ceos10 = data.slice(0, 10);
+    const ceosRest = data.slice(10, 102);
     const ceos = data;
-    const ceos10 = data.splice(0, 10);
 
     // for (let i = 0; i < ceos.length; i+=1){
     //   const fifteenMil = ceos[i].ceopay <= 15000000;
@@ -110,7 +111,7 @@ $(document).ready(() => {
       appendIcons(v);
     });
 
-    $.each(ceos, (k, v) => {
+    $.each(ceosRest, (k, v) => {
       const cardHTML = cardTemplate(v);
       $('.hidden-cards').append(cardHTML);
 
