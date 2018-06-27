@@ -69,6 +69,42 @@ $(document).ready(() => {
   } // function appendIcons
 
   let maxEmployee = 0;
+  let filterActive;
+
+  function filterCategory(cat1, cat2, cat3) {
+    // reset results list
+    $('.filter-cat-results .f-cat').removeClass('active');
+
+    // the filtering in action for all criteria
+    var selector = '.f-cat';
+    if (cat1 !== 'cat-all') {
+      selector = '[data-cat=' + cat1 + ']';
+      console.log("Test1");
+    }
+    if (cat2 !== 'cat-all') {
+      selector = selector + '[data-cat2=' + cat2 + ']';
+    }
+    if (cat3 !== 'cat-all') {
+      selector = selector + '[data-cat3=' + cat3 + ']';
+    }
+
+    // show all results
+    $(selector).addClass('active');
+
+    // reset active filter
+    filterActive = cat1;
+  }
+
+  // start by showing all items
+  $('.filter-cat-results .f-cat').addClass('active');
+
+  // call the filtering function when selects are changed
+  $('.filtering select').change(function() {
+
+  filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val());
+  });
+
+
 
   function findMax(data) {
     for (let i = 0; i < data.length; i += 1) {
@@ -77,17 +113,30 @@ $(document).ready(() => {
       if (data[i].medianpay >= maxEmployee) {
         maxEmployee = data[i].medianpay;
       }
-    }
+
+      // assigning data attributes
+      if (data[i].ceopay <= 1000000) {
+        data[i].attribute = 'one';
+        console.log(`${data[i].ceoname} less than one million`);
+      } if (data[i].ceopay >= 1000000 && data[i].ceopay <= 5000000) {
+        data[i].attribute = 'five';
+      } if (data[i].ceopay >= 5000000 && data[i].ceopay <= 10000000) {
+        data[i].attribute = 'ten';
+      } if (data[i].ceopay >= 10000000 && data[i].ceopay <= 15000000) {
+        data[i].attribute = 'fifteen';
+      } if (data[i].ceopay >= 15000000 && data[i].ceopay <= 20000000) {
+        data[i].attribute = 'twenty';
+      } if (data[i].ceopay >= 20000000) {
+        data[i].attribute = 'twentyplus';
+      }
+    } // for loop
     drawCards(data);
     appendIcons(data);
-    assignCat(data);
+    filterCategory();
   }
 
-  function assignCat(data){
-    console.log(data); 
-  }
+
   function drawCards(data) {
-
     // CHANGES
     // lets give each row an ceo an id number that we use for the id on the card
     let employeeCompensation;

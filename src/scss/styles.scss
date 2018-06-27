@@ -29,7 +29,7 @@
 }
 
 /* sort option (select boxes) styles */
-.sort-options {
+.filter-options {
   margin: 0 auto;
   padding: 2.4rem 0 2.4rem 0;
   display: flex;
@@ -43,11 +43,26 @@
     padding: 1rem;
     font-weight: bold;
   }
-  .sorter-label {
+  .filter-label {
     font-weight: bold;
   }
 }
 
+.filter-cat {
+  display: flex;
+}
+
+// .filter-cat-results .f-cat {
+//   display: none;
+//
+//   &.active {
+//     display: block;
+//   }
+// }
+
+.active {
+  display: block;
+}
 select {
   font-size: 1.3rem;
   margin: 0 .5rem;
@@ -180,7 +195,7 @@ img {
 
 .need-flex {
   display: flex;
-  align-items: baseline; 
+  align-items: baseline;
 }
 
 .employee-icons {

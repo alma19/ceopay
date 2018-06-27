@@ -120,7 +120,7 @@ googletag.cmd.push(function () {
 
 {% raw %}
 <script id="ceo-card-template" type="text/x-handlebars-template">
-  <div class="card card-{{class}}" id="card-{{class}}">
+  <div class="card card-{{class}} f-cat" id="card-{{class}}" data-cat="cat-{{attribute}}">
     <div class="card-body">
       <div class="card-title clearfix">
         <div class="compare">
@@ -234,63 +234,57 @@ googletag.cmd.push(function () {
   </div>
 </div>
 
-  <div class="sort-options filtering">
+  <div class="filter-options filtering">
     <!-- <p id="1mil">CEO COMPENSATION</p>
     <p>MEDIAN EMPLOYEE COMPSENTATION</p>
     <p>COMPANY REVENUE</p>
     <p>RESET</p> -->
 
 
-    <div class="sorters">
-      <span class="sorter-label">CEO Compensation
-      <select class="sorter cat1" id="ceo-filter">
+  <div class="filter-cat">
+    <div class="filter">
+      <span class="filter-label">CEO Compensation
+      <select class="cat1">
         <option value="cat-all">All</option>
         <option value="cat-one">$0 - $1,000,000</option>
         <option value="cat-five">$1,000,000 - $5,000,000</option>
         <option value="cat-ten">$5,000,000 - $10,000,000</option>
         <option value="cat-fifteen">$10,000,000 - $15,000,000</option>
         <option value="cat-twenty">$15,000,000 - $20,000,000</option>
+        <option value="cat-twentyplus">$20,000 +</option>
       </select>
       </span>
     </div>
 
-    <div class="sorter">
-      <span class="sorter-label">Median Employee Compensation
-      <select class="sorter cat2" id="employee-sort">
+
+    <div class="filter">
+      <span class="filter-label">Median Employee Compensation
+      <select class="cat2">
         <option>All</option>
       </select>
     </span>
     </div>
 
 
-    <div class="sorter">
-      <span class="sorter-label">Company Revenue
-      <select class="sorter cat3" id="revenue-sort">
+    <div class="filter">
+      <span class="filter-label">Company Revenue
+      <select class="cat3">
         <option>All</option>
       </select>
     </span>
     </div>
-
-<!--
-    <div class="sorter">
-      <span class="sorter-label">Industry
-      <select class="sorter" id="industry-sort">
-        <option selected>
-          All
-        </option>
-      </select>
-    </div> -->
 
   </div>
+</div>
 
 
 
-<div class="cards hider" id="cards"> </div>
-<div class="sort-options">
+<div class="cards filter-cat-results" id="cards"> </div>
+<div class="filter-options">
     <p id="showAll">SHOW ALL</p>
 </div>
 
-<div class="no-show hidden-cards"></div>
+<div class="no-show hidden-cards filter-cat-results"></div>
 
 
 
