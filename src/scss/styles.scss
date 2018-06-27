@@ -17,51 +17,6 @@
  /* Project-specific styles */
 /*                         */
 
-// Enter your custom styles here.
-// .container {
-//   max-width: 1100px;
-//   margin: 0 auto;
-// }
-// .cards {
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin-top: 15px;
-//   padding: 1.5%;
-//   box-sizing: border-box;
-// }
-// .card {
-//   @media (max-width: 700px) {
-//     width: 100%;
-//   }
-//   position: relative;
-//   background-color: #fefff9;
-//   // width: 500px;
-//   height: 300px;
-//   // border: 1px solid #000;
-//   // border-radius: 4px;
-//   overflow: hidden;
-//
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .card-header {
-//   font-size: 12px;
-//   font-weight: 600;
-//   border-bottom: 1px solid #000;
-//   background-color: #ffbee;
-//   padding: 5px 10px;
-// }
-//
-// .card-main {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 15px 0 0 10px;
-// }
-
-
 /*intro*/
 .interactive-intro {
   font-family: $sans;
@@ -106,6 +61,7 @@ select {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 
 .hidden-cards {
   width: 90%;
@@ -204,42 +160,6 @@ img {
 }
 
 
-.ceo-pic-center {
-  height: 100px;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5px;
-}
-
-.ceo-name-center {
-  display: flex;
-  font-size: 2em;
-  justify-content: center;
-}
-
-
-.pay-info {
-  padding-bottom: 5px;
-  font-size: 1.3rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-    p {
-      padding-bottom: .5rem;
-      font-family: $sans;
-    }
-}
-
-
-.pay {
-  margin: 1rem;
-  width: 30%;
-}
-
-
 .pay-info-row {
   padding-bottom: 1rem;
   font-size: 1.5rem;
@@ -247,15 +167,11 @@ img {
   margin: 0 auto;
   width: 90%;
 
+
   p {
     padding-bottom: .5rem;
     font-family: $sans;
   }
-}
-
-.employee-icons {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid $black215;
 }
 
 .pay-row {
@@ -264,7 +180,12 @@ img {
 
 .need-flex {
   display: flex;
-  justify-content: space-between;
+  align-items: baseline; 
+}
+
+.employee-icons {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $black215;
 }
 
 
@@ -277,4 +198,14 @@ img {
 .icons {
   margin-top: .6rem;
   text-align: justify;
+}
+
+
+.employee-bar, .teacher-bar, .police-bar {
+  background-color: red;
+  height: 1rem;
+}
+
+.label {
+  width: 20%;
 }
