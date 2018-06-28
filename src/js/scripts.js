@@ -69,40 +69,6 @@ $(document).ready(() => {
   } // function appendIcons
 
   let maxEmployee = 0;
-  let filterActive;
-
-  function filterCategory(cat1, cat2, cat3) {
-    // reset results list
-    $('.filter-cat-results .f-cat').removeClass('active');
-
-    // the filtering in action for all criteria
-    var selector = '.f-cat';
-    if (cat1 !== 'cat-all') {
-      selector = '[data-cat=' + cat1 + ']';
-      console.log("Test1");
-    }
-    if (cat2 !== 'cat-all') {
-      selector = selector + '[data-cat2=' + cat2 + ']';
-    }
-    if (cat3 !== 'cat-all') {
-      selector = selector + '[data-cat3=' + cat3 + ']';
-    }
-
-    // show all results
-    $(selector).addClass('active');
-
-    // reset active filter
-    filterActive = cat1;
-  }
-
-  // start by showing all items
-  $('.filter-cat-results .f-cat').addClass('active');
-
-  // call the filtering function when selects are changed
-  $('.filtering select').change(function() {
-
-  filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val());
-  });
 
 
 
@@ -117,7 +83,6 @@ $(document).ready(() => {
       // assigning data attributes
       if (data[i].ceopay <= 1000000) {
         data[i].attribute = 'one';
-        console.log(`${data[i].ceoname} less than one million`);
       } if (data[i].ceopay >= 1000000 && data[i].ceopay <= 5000000) {
         data[i].attribute = 'five';
       } if (data[i].ceopay >= 5000000 && data[i].ceopay <= 10000000) {
@@ -132,7 +97,9 @@ $(document).ready(() => {
     } // for loop
     drawCards(data);
     appendIcons(data);
-    filterCategory();
+
+    $('.filter-cat-results .f-cat').addClass('active');
+    console.log($('.filter-cat-results .f-cat'));
   }
 
 
@@ -153,6 +120,7 @@ $(document).ready(() => {
     // }
 
 
+
     $.each(ceos10, (k, v) => {
       const cardHTML = cardTemplate(v);
       $('.cards').append(cardHTML);
@@ -167,6 +135,44 @@ $(document).ready(() => {
       appendIcons(v);
     });
   } // function drawCArds
+
+
+  function filterCategory(cat1, cat2, cat3) {
+    console.log(cat1);
+     // reset results list
+    $('.filter-cat-results .f-cat').removeClass('active');
+
+    // the filtering in action for all criteria
+    let selector = '.f-cat';
+
+
+    if (cat1 !== 'cat-all') {
+      selector = '[data-cat=' + cat1 + ']';
+    }
+    // if (cat2 !== 'cat-all') {
+    //   selector = selector + '[data-cat2=' + cat2 + ']';
+    // }
+    // if (cat3 !== 'cat-all') {
+    //   selector = selector + '[data-cat3=' + cat3 + ']';
+    // }
+
+    // show all results
+    $(selector).addClass('active');
+    console.log(selector);
+  }
+
+  // start by showing all items
+  $('.filter-cat-results .f-cat').addClass('active');
+  console.log($('.filter-cat-results .f-cat'));
+
+
+
+  // call the filtering function when selects are changed
+  $('.filter select').change(function() {
+
+    filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val());
+});
+
   $.ajax({
     url: 'https://interactives.dallasnews.com/data-store/2018/2018-06-ceo-pay-tracker.json',
     cache: false,

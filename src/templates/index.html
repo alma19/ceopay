@@ -120,6 +120,7 @@ googletag.cmd.push(function () {
 
 {% raw %}
 <script id="ceo-card-template" type="text/x-handlebars-template">
+
   <div class="card card-{{class}} f-cat" id="card-{{class}}" data-cat="cat-{{attribute}}">
     <div class="card-body">
       <div class="card-title clearfix">
@@ -175,7 +176,8 @@ googletag.cmd.push(function () {
         </div>
       </div>
     </div>
-  </div> <!--single card -->
+
+
 
 </script>
 {% endraw %}
@@ -279,12 +281,12 @@ googletag.cmd.push(function () {
 
 
 
-<div class="cards filter-cat-results" id="cards"> </div>
+<div class="filter-cat-results"> <div class="cards" id="cards"> </div></div>
 <div class="filter-options">
     <p id="showAll">SHOW ALL</p>
 </div>
 
-<div class="no-show hidden-cards filter-cat-results"></div>
+<div class="no-show hidden-cards"></div>
 
 
 

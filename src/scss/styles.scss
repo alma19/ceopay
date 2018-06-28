@@ -52,13 +52,22 @@
   display: flex;
 }
 
-// .filter-cat-results .f-cat {
-//   display: none;
-//
-//   &.active {
-//     display: block;
-//   }
-// }
+.filter-cat-results {
+  margin: 0 2rem 2rem 0;
+}
+
+
+.filter-cat-results .f-cat {
+  display: none;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.filter-cat-results.active .f-cat {
+   display: block;
+ }
 
 .active {
   display: block;
@@ -71,6 +80,7 @@ select {
 /* card styles*/
 .cards {
   width: 90%;
+  // take out width: 90
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
