@@ -121,7 +121,7 @@ googletag.cmd.push(function () {
 {% raw %}
 <script id="ceo-card-template" type="text/x-handlebars-template">
 
-  <div class="card card-{{class}} f-cat" id="card-{{class}}" data-cat="cat-{{attribute}}">
+  <div class="card card-{{class}} f-cat" id="card-{{class}}" data-cat="cat-{{ceo}}" data-cat2="cat-{{employee}}">
     <div class="card-body">
       <div class="card-title clearfix">
         <div class="compare">
@@ -153,7 +153,7 @@ googletag.cmd.push(function () {
         </div>
 
         <div class="row">
-          <div class="pay-info-row need-flex">
+          <div class="pay-info-row need-flex no-padding">
             <p class="label"> Employee</p>
             <span class="employee-bar"></span>
             </div>
@@ -161,7 +161,7 @@ googletag.cmd.push(function () {
         </div>
 
         <div class="row">
-          <div class="pay-info-row need-flex">
+          <div class="pay-info-row need-flex no-padding">
             <p class="label">DSID</p>
             <span class="teacher-bar"></span>
           </div>
@@ -246,14 +246,14 @@ googletag.cmd.push(function () {
   <div class="filter-cat">
     <div class="filter">
       <span class="filter-label">CEO Compensation
-      <select class="cat1">
+      <select class="form-control cat1">
         <option value="cat-all">All</option>
         <option value="cat-one">$0 - $1,000,000</option>
         <option value="cat-five">$1,000,000 - $5,000,000</option>
         <option value="cat-ten">$5,000,000 - $10,000,000</option>
         <option value="cat-fifteen">$10,000,000 - $15,000,000</option>
         <option value="cat-twenty">$15,000,000 - $20,000,000</option>
-        <option value="cat-twentyplus">$20,000 +</option>
+        <option value="cat-twentyplus">$20,000,000 +</option>
       </select>
       </span>
     </div>
@@ -262,7 +262,11 @@ googletag.cmd.push(function () {
     <div class="filter">
       <span class="filter-label">Median Employee Compensation
       <select class="cat2">
-        <option>All</option>
+        <option value="cat-all">All</option>
+        <option value="cat-fifty">$0 - $50,000</option>
+        <option value="cat-onehundred">$50,000 - $100,000</option>
+        <option value="cat-twohundred">$100,000 - $200,000</option>
+        <option value ="cat-twohundredplus">$200,000 + </option>
       </select>
     </span>
     </div>
@@ -276,17 +280,27 @@ googletag.cmd.push(function () {
     </span>
     </div>
 
+    <div class="filter">
+      <span class="filter-label">Industry
+      <select class="cat4">
+        <option>All</option>
+      </select>
+    </span>
+    </div>
+
   </div>
 </div>
 
 
 
 <div class="filter-cat-results"> <div class="cards" id="cards"> </div></div>
-<div class="filter-options">
+<div class="filter-options show-all">
     <p id="showAll">SHOW ALL</p>
 </div>
 
-<div class="no-show hidden-cards"></div>
+<div class="filter-cat-results">
+  <div class="no-show hidden-cards"></div>
+</div>
 
 
 

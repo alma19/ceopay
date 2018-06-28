@@ -48,11 +48,12 @@ $(document).ready(() => {
   // CHANGES
   // let's use the DRY principle here and create a function that appends our icons
   // so we can use it in both places
+  let maxEmployee = 0;
 
   function appendIcons(data) {
     // setting up the ratios
     const medianemployees = data.employeeratio / 10;
-    const employeecompensation = (data.medianpay / maxEmployee ) * 100;
+    const employeecompensation = (data.medianpay / maxEmployee) * 100;
     const teachercompensation = (52000 / maxEmployee) * 100;
     const policecompensation = (65956 / maxEmployee) * 100;
 
@@ -68,10 +69,6 @@ $(document).ready(() => {
     $(`#card-${data.class} .police-bar`).css('width', `${policecompensation}%`);
   } // function appendIcons
 
-  let maxEmployee = 0;
-
-
-
   function findMax(data) {
     for (let i = 0; i < data.length; i += 1) {
       // data[i].id = i;
@@ -80,46 +77,44 @@ $(document).ready(() => {
         maxEmployee = data[i].medianpay;
       }
 
-      // assigning data attributes
+      // assigning ceopay attributes
       if (data[i].ceopay <= 1000000) {
-        data[i].attribute = 'one';
+        data[i].ceo = 'one';
       } if (data[i].ceopay >= 1000000 && data[i].ceopay <= 5000000) {
-        data[i].attribute = 'five';
+        data[i].ceo = 'five';
       } if (data[i].ceopay >= 5000000 && data[i].ceopay <= 10000000) {
-        data[i].attribute = 'ten';
+        data[i].ceo = 'ten';
       } if (data[i].ceopay >= 10000000 && data[i].ceopay <= 15000000) {
-        data[i].attribute = 'fifteen';
+        data[i].ceo = 'fifteen';
       } if (data[i].ceopay >= 15000000 && data[i].ceopay <= 20000000) {
-        data[i].attribute = 'twenty';
+        data[i].ceo = 'twenty';
       } if (data[i].ceopay >= 20000000) {
-        data[i].attribute = 'twentyplus';
+        data[i].ceo = 'twentyplus';
+      }
+
+      // assigning median pay attribute
+      if (data[i].medianpay <= 50000) {
+        data[i].employee = 'fifty';
+      } if (data[i].medianpay >= 50000 && data[i].medianpay <= 1000000) {
+        data[i].employee = 'onehundred';
+      } if (data[i].medianpay >= 100000 && data[i].medianpay <= 2000000) {
+        data[i].employee = 'twohundred';
+      } if (data[i].medianpay >= 200000) {
+        data[i].employee = 'twohundredplus';
       }
     } // for loop
     drawCards(data);
     appendIcons(data);
 
     $('.filter-cat-results .f-cat').addClass('active');
-    console.log($('.filter-cat-results .f-cat'));
   }
 
 
   function drawCards(data) {
     // CHANGES
     // lets give each row an ceo an id number that we use for the id on the card
-    let employeeCompensation;
-    const teacherCompensation = maxEmployee / 52000;
-    const policeCompensation = maxEmployee / 65956;
-
     const ceos10 = data.slice(0, 10);
     const ceosRest = data.slice(10, 102);
-    const ceos = data;
-
-    // for (let i = 0; i < ceos.length; i+=1){
-    //   const fifteenMil = ceos[i].ceopay <= 15000000;
-    //   console.log(ceos[i].company + ' is ' + fifteenMil + ' ' + ceos[i].ceopay);
-    // }
-
-
 
     $.each(ceos10, (k, v) => {
       const cardHTML = cardTemplate(v);
@@ -138,7 +133,6 @@ $(document).ready(() => {
 
 
   function filterCategory(cat1, cat2, cat3) {
-    console.log(cat1);
      // reset results list
     $('.filter-cat-results .f-cat').removeClass('active');
 
@@ -147,31 +141,32 @@ $(document).ready(() => {
 
 
     if (cat1 !== 'cat-all') {
-      selector = '[data-cat=' + cat1 + ']';
+      selector = `[data-cat=${cat1}]`;
     }
-    // if (cat2 !== 'cat-all') {
-    //   selector = selector + '[data-cat2=' + cat2 + ']';
-    // }
+    if (cat2 !== 'cat-all') {
+      selector = `${selector} [data-cat= ${cat2}]`;
+    }
     // if (cat3 !== 'cat-all') {
     //   selector = selector + '[data-cat3=' + cat3 + ']';
     // }
 
     // show all results
     $(selector).addClass('active');
-    console.log(selector);
   }
 
   // start by showing all items
   $('.filter-cat-results .f-cat').addClass('active');
-  console.log($('.filter-cat-results .f-cat'));
 
 
+    // call the filtering funct() => s  are changed
 
-  // call the filtering function when selects are changed
-  $('.filter select').change(function() {
-
+    // call the filtering function when selects are changed
+  $('.filtering select').change(function () {
     filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val());
-});
+
+    $('.hidden-cards').removeClass('no-show');
+    $('#showAll').addClass('no-show');
+  });
 
   $.ajax({
     url: 'https://interactives.dallasnews.com/data-store/2018/2018-06-ceo-pay-tracker.json',
