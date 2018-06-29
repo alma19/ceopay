@@ -62,7 +62,11 @@ $(document).ready(() => {
       $('<i class="fas fa-user"></i>').appendTo($(`#card-${data.class} .employee`));
     }
 
-    $(`#card-${data.class} .employee-bar`).css('width', `${employeecompensation}%`);
+    if (employeecompensation !== 100) {
+      $(`#card-${data.class} .employee-bar`).css('width', `${employeecompensation}%`);
+    } else {
+      $(`#card-${data.class} .employee-bar`).css('width', '80%');
+    }
 
     $(`#card-${data.class} .teacher-bar`).css('width', `${teachercompensation}%`);
 
@@ -113,8 +117,6 @@ $(document).ready(() => {
   function drawCards(data) {
     // CHANGES
     // lets give each row an ceo an id number that we use for the id on the card
-    const ceos10 = data.slice(0, 10);
-    const ceosRest = data.slice(10, 102);
     const ceos = data;
 
     $.each(ceos, (k, v) => {
@@ -123,20 +125,6 @@ $(document).ready(() => {
 
       appendIcons(v);
     });
-
-    // $.each(ceos10, (k, v) => {
-    //   const cardHTML = cardTemplate(v);
-    //   $('.cards').append(cardHTML);
-    //
-    //   appendIcons(v);
-    // });
-    //
-    // $.each(ceosRest, (k, v) => {
-    //   const cardHTML = cardTemplate(v);
-    //   $('.hidden-cards').append(cardHTML);
-    //
-    //   appendIcons(v);
-    // });
   } // function drawCArds
 
 

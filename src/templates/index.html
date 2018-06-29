@@ -136,29 +136,37 @@ googletag.cmd.push(function () {
           <div class="ceo-info">
             <h4>{{ceoname}}</h4>
             <h6>{{company}} {{# if sector }}({{sector}}){{/if}}</h6>
-            <h6>Compensation:  <span class="ceocomp">{{#if ceopay}} ${{formatNumber ceopay}} {{/if}}</span></h6>
+            {{#if ceopay}}<h6>Compensation:  <span class="ceocomp"> ${{formatNumber ceopay}} </span></h6>{{/if}}
             <h6>Company Revenue: ${{revenues}}</h6>
           </div>
       </div>
 
       <div class="card-text">
         <div class="row"> <!--ceo and employee pay row-->
+            {{#if medianpay}}
           <div class="pay-info-row employee-icons">
-            <p><strong>Median Employee Compsensation: {{#if medianpay}} ${{formatNumber medianpay}} {{/if}}</strong></p>
-            <p>{{namePossessive ceoname}} compensation could pay for <strong>{{employeeratio}}</strong> median employee salaries.</p>
-            <div class="employee icons">
-
-            </div>
+              <p><strong>Median Employee Compsensation: ${{formatNumber medianpay}}</strong></p>
+              <p>{{namePossessive ceoname}} compensation could pay for <strong>{{employeeratio}}</strong> median employee salaries.</p>
+              <div class="employee icons"></div>
           </div>
+            {{else}}
+          <div class="pay-info-row">
+            <p>{{medianpaynotes}}</p>
+          </div>
+
+            {{/if}}
+
+
         </div>
 
+        {{#if medianpay}}
         <div class="row">
           <div class="pay-info-row need-flex no-padding">
             <p class="label"> Employee</p>
             <span class="employee-bar"></span>
             </div>
           </div>
-        </div>
+
 
         <div class="row">
           <div class="pay-info-row need-flex no-padding">
@@ -174,7 +182,9 @@ googletag.cmd.push(function () {
             <span class="police-bar"></span>
           </div>
         </div>
-      </div>
+        {{/if}}
+        </div>
+      </div> <!--card body-->
     </div>
 
 
