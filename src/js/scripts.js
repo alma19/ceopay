@@ -8,9 +8,9 @@ const HandlebarsIntl = require('handlebars-intl');
 
 $(document).ready(() => {
   $('.employee-compensation').css('width', '50%');
-  $('#showAll').click(function () {
-    $('.hidden-cards').removeClass('no-show');
+  $('#showAll').click(function(){
     $(this).addClass('no-show');
+    $('.cards').removeClass('hider');
   });
 
 
@@ -115,20 +115,28 @@ $(document).ready(() => {
     // lets give each row an ceo an id number that we use for the id on the card
     const ceos10 = data.slice(0, 10);
     const ceosRest = data.slice(10, 102);
+    const ceos = data;
 
-    $.each(ceos10, (k, v) => {
+    $.each(ceos, (k, v) => {
       const cardHTML = cardTemplate(v);
       $('.cards').append(cardHTML);
 
       appendIcons(v);
     });
 
-    $.each(ceosRest, (k, v) => {
-      const cardHTML = cardTemplate(v);
-      $('.hidden-cards').append(cardHTML);
-
-      appendIcons(v);
-    });
+    // $.each(ceos10, (k, v) => {
+    //   const cardHTML = cardTemplate(v);
+    //   $('.cards').append(cardHTML);
+    //
+    //   appendIcons(v);
+    // });
+    //
+    // $.each(ceosRest, (k, v) => {
+    //   const cardHTML = cardTemplate(v);
+    //   $('.hidden-cards').append(cardHTML);
+    //
+    //   appendIcons(v);
+    // });
   } // function drawCArds
 
 
@@ -139,32 +147,28 @@ $(document).ready(() => {
     // the filtering in action for all criteria
     let selector = '.f-cat';
 
-
     if (cat1 !== 'cat-all') {
       selector = `[data-cat=${cat1}]`;
     }
     if (cat2 !== 'cat-all') {
-      selector = `${selector} [data-cat= ${cat2}]`;
+      selector = `${selector}[data-cat2=${cat2}]`;
     }
     // if (cat3 !== 'cat-all') {
     //   selector = selector + '[data-cat3=' + cat3 + ']';
     // }
 
-    // show all results
+    // show filter results
     $(selector).addClass('active');
+    console.log(selector);
   }
-
   // start by showing all items
   $('.filter-cat-results .f-cat').addClass('active');
-
-
-    // call the filtering funct() => s  are changed
 
     // call the filtering function when selects are changed
   $('.filtering select').change(function () {
     filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val());
 
-    $('.hidden-cards').removeClass('no-show');
+    $('.cards').removeClass('hider');
     $('#showAll').addClass('no-show');
   });
 

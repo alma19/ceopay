@@ -87,6 +87,23 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
+
+  &.hider {
+    .card:nth-of-type(n+11) {
+      display: none;
+    }
+    &:after {
+      width: 100%;
+      height: 25%;
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(rgba(255,255,255,-0.5), #fff)
+    }
+  }
 }
 
 
@@ -101,15 +118,6 @@ select {
   display: none;
 }
 
-.hidden-cards::before{
-  overflow: hidden;
-  height: 50px;
-  background: black;
-  // background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), white);
-  // background: -o-linear-gradient(rgba(255, 255, 255, 0.5), white);
-  // background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), white);
-  // background: linear-gradient(rgba(255, 255, 255, 0.5), white); }
-}
 
 
 .card {
@@ -124,12 +132,11 @@ select {
   margin: 0 2rem 2rem 0;
   // box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
   box-shadow: 0px 0px 8px .5px #b3b3b3;
-}
+  &:hover {
+    box-shadow: 3px 3px 8px hsl(0, 0%, 50%);
+  }
 
-.card:hover {
-	box-shadow: 3px 3px 8px hsl(0, 0%, 50%);
 }
-
 
 .card-title {
   border-bottom: 1px solid #000;
@@ -139,9 +146,6 @@ select {
   color: white;
 }
 
-.card-title p {
-  padding-bottom: 5px;
-}
 
 h4 {
   margin-bottom: .6rem;
@@ -234,7 +238,7 @@ img {
 
 .label {
   width: 20%;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .form-control {
