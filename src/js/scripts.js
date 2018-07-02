@@ -13,9 +13,6 @@ $(document).ready(() => {
     $('.cards').removeClass('hider');
   });
 
-  // $('#searchInput').on('keyup', function(){
-  //   $('#searchInput').css('background-color', 'pink');
-  // });
 
   handlebars.registerHelper('namePossessive', (name) => {
     const lastLetter = name.slice(-1);
@@ -139,11 +136,17 @@ $(document).ready(() => {
       appendIcons(v);
     });
 
+    // search cards by ceo and company
     let options = {
-      valueNames: ['ceo-name']
+      valueNames: ['ceo-name', 'company']
      };
 
     let ceoList = new List('ceo-list', options);
+
+    $('#ceo-list').on('keyup', function(){
+      $('.cards').removeClass('hider');
+      $('#showAll').addClass('no-show');
+    })
 
 
   } // function drawCArds

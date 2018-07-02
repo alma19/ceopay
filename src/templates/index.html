@@ -139,7 +139,7 @@ googletag.cmd.push(function () {
 
           <div class="ceo-info">
             <h4 class="ceo-name">{{ceoname}}</h4>
-            <h6>{{company}} {{# if sector }}({{sector}}){{/if}}</h6>
+            <h6><span class="company">{{company}}</span> {{# if sector }}({{sector}}){{/if}}</h6>
             {{#if ceopay}}<h6>Compensation:  <span class="ceocomp"> ${{formatNumber ceopay}} </span></h6>{{/if}}
             <h6>Company Revenue: ${{revenues}}</h6>
           </div>
@@ -309,16 +309,14 @@ googletag.cmd.push(function () {
 
 </div>
 
-<!-- <div class="filter-options">
-  <input id="searchInput" type="text" placeholder="Search company or CEO..." />
-</div> -->
-
 
 <div class="filter-cat-results" id="ceo-list">
-  <div class="filter-options">
+  <div class="filter-options" id="search-filter">
+  <span class="filter-label" id="search">Search CEO or company
     <input class="search" placeholder="Search" />
+  </span>
   </div>
-  <ul class="list cards" id="cards">
+  <ul class="list cards hider" id="cards">
 
 
    </ul>
