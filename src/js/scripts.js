@@ -13,6 +13,9 @@ $(document).ready(() => {
     $('.cards').removeClass('hider');
   });
 
+  // $('#searchInput').on('keyup', function(){
+  //   $('#searchInput').css('background-color', 'pink');
+  // });
 
   handlebars.registerHelper('namePossessive', (name) => {
     const lastLetter = name.slice(-1);
@@ -113,11 +116,21 @@ $(document).ready(() => {
     $('.filter-cat-results .f-cat').addClass('active');
   }
 
-
   function drawCards(data) {
     // CHANGES
     // lets give each row an ceo an id number that we use for the id on the card
-    const ceos = data;
+    const  ceos = data;
+    const ceoSort = data.slice().sort(function (a, b) {
+      return a.ceopay - b.ceopay;
+    });
+
+
+    // $.each(ceos, (k, v) => {
+    //   const cardHTML = cardTemplate(v);
+    //   $('.cards').append(cardHTML);
+    //
+    //   appendIcons(v);
+    // });
 
     $.each(ceos, (k, v) => {
       const cardHTML = cardTemplate(v);
@@ -125,7 +138,16 @@ $(document).ready(() => {
 
       appendIcons(v);
     });
+
+    let options = {
+      valueNames: ['ceo-name']
+     };
+
+    let ceoList = new List('ceo-list', options);
+
+
   } // function drawCArds
+
 
 
   function filterCategory(cat1, cat2, cat3) {
@@ -147,7 +169,6 @@ $(document).ready(() => {
 
     // show filter results
     $(selector).addClass('active');
-    console.log(selector);
   }
   // start by showing all items
   $('.filter-cat-results .f-cat').addClass('active');

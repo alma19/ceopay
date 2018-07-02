@@ -121,6 +121,10 @@ googletag.cmd.push(function () {
 {% raw %}
 <script id="ceo-card-template" type="text/x-handlebars-template">
 
+
+<li>
+
+
   <div class="card card-{{class}} f-cat" id="card-{{class}}" data-cat="cat-{{ceo}}" data-cat2="cat-{{employee}}">
     <div class="card-body">
       <div class="card-title clearfix">
@@ -134,7 +138,7 @@ googletag.cmd.push(function () {
         {{/if}}
 
           <div class="ceo-info">
-            <h4>{{ceoname}}</h4>
+            <h4 class="ceo-name">{{ceoname}}</h4>
             <h6>{{company}} {{# if sector }}({{sector}}){{/if}}</h6>
             {{#if ceopay}}<h6>Compensation:  <span class="ceocomp"> ${{formatNumber ceopay}} </span></h6>{{/if}}
             <h6>Company Revenue: ${{revenues}}</h6>
@@ -144,9 +148,9 @@ googletag.cmd.push(function () {
       <div class="card-text">
         <div class="row"> <!--ceo and employee pay row-->
             {{#if medianpay}}
-          <div class="pay-info-row employee-icons">
+          <div class="pay-info-row border-bottom">
               <p><strong>Median Employee Compsensation: ${{formatNumber medianpay}}</strong></p>
-              <p>{{namePossessive ceoname}} compensation could pay for <strong>{{employeeratio}}</strong> median employee salaries.</p>
+              <p>{{namePossessive ceoname}} compensation could pay for <strong>{{employeeratio}}</strong> {{company}} median employee salaries.</p>
               <div class="employee icons"></div>
           </div>
             {{else}}
@@ -170,7 +174,7 @@ googletag.cmd.push(function () {
 
         <div class="row">
           <div class="pay-info-row need-flex no-padding">
-            <p class="label">DSID</p>
+            <p class="label">DISD</p>
             <span class="teacher-bar"></span>
           </div>
         </div>
@@ -183,10 +187,16 @@ googletag.cmd.push(function () {
           </div>
         </div>
         {{/if}}
+        <div class="row">
+          <div class="pay-info-row border-top">
+            <p>Testing notes section</p>
+          </div>
         </div>
-      </div> <!--card body-->
-    </div>
 
+      </div> <!--card text-->
+      </div> <!--card body-->
+    </div> <!--card-->
+</li>
 
 
 </script>
@@ -247,10 +257,6 @@ googletag.cmd.push(function () {
 </div>
 
   <div class="filter-options filtering">
-    <!-- <p id="1mil">CEO COMPENSATION</p>
-    <p>MEDIAN EMPLOYEE COMPSENTATION</p>
-    <p>COMPANY REVENUE</p>
-    <p>RESET</p> -->
 
 
   <div class="filter-cat">
@@ -299,11 +305,26 @@ googletag.cmd.push(function () {
     </div>
 
   </div>
+
+
+</div>
+
+<!-- <div class="filter-options">
+  <input id="searchInput" type="text" placeholder="Search company or CEO..." />
+</div> -->
+
+
+<div class="filter-cat-results" id="ceo-list">
+  <div class="filter-options">
+    <input class="search" placeholder="Search" />
+  </div>
+  <ul class="list cards" id="cards">
+
+
+   </ul>
 </div>
 
 
-
-<div class="filter-cat-results"> <div class="cards hider" id="cards"> </div></div>
 <div class="filter-options show-all">
     <p id="showAll">SHOW ALL</p>
 </div>
