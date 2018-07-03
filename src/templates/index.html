@@ -152,7 +152,9 @@ googletag.cmd.push(function () {
               <p><strong>Median Employee Compsensation: ${{formatNumber medianpay}}</strong></p>
               <p>{{namePossessive ceoname}} compensation could pay for <strong>{{employeeratio}}</strong> {{company}} median employee salaries.</p>
               <div class="employee icons"></div>
+              <p class="icon-info">1 icon is equal to 10 employees</p>
           </div>
+
             {{else}}
           <div class="pay-info-row">
             <p>{{medianpaynotes}}</p>
@@ -165,6 +167,14 @@ googletag.cmd.push(function () {
 
         {{#if medianpay}}
         <div class="row">
+          <div class="pay-info-row">
+            <p><strong>{{company}} Employees and Dallas Civil Servants</strong></p>
+            <p>Text here about how we're comparing the median employee pays of the employees to dallas civil servants.</p>
+          </div>
+        </div>
+
+
+        <div class="row">
           <div class="pay-info-row need-flex no-padding">
             <p class="label"> Employee</p>
             <span class="employee-bar"></span>
@@ -174,7 +184,7 @@ googletag.cmd.push(function () {
 
         <div class="row">
           <div class="pay-info-row need-flex no-padding">
-            <p class="label">DISD</p>
+            <p class="label">DISD Employee</p>
             <span class="teacher-bar"></span>
           </div>
         </div>
