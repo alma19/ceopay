@@ -49,28 +49,47 @@ $(document).ready(() => {
   // let's use the DRY principle here and create a function that appends our icons
   // so we can use it in both places
   let maxEmployee = 0;
+  let maxCeo = 0;
 
   function appendIcons(data) {
     // setting up the ratios
     const medianemployees = data.employeeratio / 10;
-    const employeecompensation = (data.medianpay / maxEmployee) * 100;
-    const teachercompensation = (52000 / maxEmployee) * 100;
-    const policecompensation = (65956 / maxEmployee) * 100;
+
+    const ceocompensation = (data.ceopay / maxCeo) * 100;
+    const employeecompensation = (data.medianpay / maxCeo) * 100;
+    const teachercompensation = (52000 / maxCeo) * 100;
+    const policecompensation = (65956 / maxCeo) * 100;
+
+
+    // const employeecompensation = (data.medianpay / maxEmployee) * 100;
+    // const teachercompensation = (52000 / maxEmployee) * 100;
+    // const policecompensation = (65956 / maxEmployee) * 100;
 
     // apending icons and chart bars
     for (let i = 0; i < medianemployees; i += 1) {
       $('<i class="fas fa-user"></i>').appendTo($(`#card-${data.class} .employee`));
     }
 
-    if (employeecompensation !== 100) {
-      $(`#card-${data.class} .employee-bar`).css('width', `${employeecompensation}%`);
+    if (ceocompensation !== 100) {
+      $(`#card-${data.class} .ceo-bar`).css('width', `${ceocompensation}%`);
     } else {
-      $(`#card-${data.class} .employee-bar`).css('width', '80%');
-    }
+      $(`#card-${data.class} .ceo-bar`).css('width', '80%');
+     }
+
+     $(`#card-${data.class} .employee-bar`).css('width', `${teachercompensation}%`);
 
     $(`#card-${data.class} .teacher-bar`).css('width', `${teachercompensation}%`);
-
     $(`#card-${data.class} .police-bar`).css('width', `${policecompensation}%`);
+
+    // if (employeecompensation !== 100) {
+    //   $(`#card-${data.class} .employee-bar`).css('width', `${employeecompensation}%`);
+    // } else {
+    //   $(`#card-${data.class} .employee-bar`).css('width', '80%');
+    // }
+    //
+    // $(`#card-${data.class} .teacher-bar`).css('width', `${teachercompensation}%`);
+    //
+    // $(`#card-${data.class} .police-bar`).css('width', `${policecompensation}%`);
   } // function appendIcons
 
   function findMax(data) {
@@ -79,6 +98,10 @@ $(document).ready(() => {
       data[i].class = i;
       if (data[i].medianpay >= maxEmployee) {
         maxEmployee = data[i].medianpay;
+      }
+
+      if (data[i].ceopay >= maxCeo) {
+        maxCeo = data[i].ceopay;
       }
 
       // assigning ceopay attributes
