@@ -122,10 +122,10 @@ googletag.cmd.push(function () {
 <script id="ceo-card-template" type="text/x-handlebars-template">
 
 
-<li>
+<li class="f-cat" data-cat="cat-{{ceo}}" data-cat2="cat-{{employee}}" data-cat4="cat-{{sectorfilter}}">
 
 
-  <div class="card card-{{class}} f-cat" id="card-{{class}}" data-cat="cat-{{ceo}}" data-cat2="cat-{{employee}}">
+  <div class="card card-{{class}}" id="card-{{class}}"  >
     <div class="card-body">
       <div class="card-title clearfix">
         <div class="compare">
@@ -140,7 +140,7 @@ googletag.cmd.push(function () {
           <div class="ceo-info">
             <h4 class="ceo-name">{{ceoname}}</h4>
             <h6><span class="company">{{company}}</span> {{# if sector }}({{sector}}){{/if}}</h6>
-            {{#if ceopay}}<h6>Compensation:  <span class="ceocomp"> ${{formatNumber ceopay}} </span></h6>{{/if}}
+            {{#if ceopay}}<h6>Compensation:  <span class="ceocomp">${{formatNumber ceopay}} </span></h6>{{/if}}
             <h6>Company Revenue: ${{revenues}}</h6>
           </div>
       </div>
@@ -154,19 +154,13 @@ googletag.cmd.push(function () {
               <div class="employee icons"></div>
               <p class="icon-info">1 icon is equal to 10 employees</p>
           </div>
-
-            {{else}}
-          <div class="pay-info-row">
-            <p>{{medianpaynotes}}</p>
-          </div>
-
             {{/if}}
 
 
         </div>
 
-        {{#if medianpay}}
-        <div class="row">
+      {{#if medianpay}}
+      <div class="row">
           <div class="pay-info-row">
             <p><strong>{{company}} Employees and Dallas Civil Servants</strong></p>
             <p>Text here about how we're comparing the median employee pays of the employees to dallas civil servants.</p>
@@ -176,7 +170,7 @@ googletag.cmd.push(function () {
 
         <div class="row">
           <div class="pay-info-row need-flex no-padding">
-            <p class="label"> Employee</p>
+            <p class="label"> {{company}}</p>
             <span class="employee-bar"></span>
             </div>
           </div>
@@ -184,7 +178,7 @@ googletag.cmd.push(function () {
 
         <div class="row">
           <div class="pay-info-row need-flex no-padding">
-            <p class="label">DISD Employee</p>
+            <p class="label">DISD: $52,000</p>
             <span class="teacher-bar"></span>
           </div>
         </div>
@@ -192,16 +186,25 @@ googletag.cmd.push(function () {
 
         <div class="row">
           <div class="pay-info-row need-flex">
-            <p class="label">DPD</p>
+            <p class="label">DPD: $65,956</p>
             <span class="police-bar"></span>
           </div>
         </div>
+
+        <div class="border-bottom"></div>
         {{/if}}
+
+        {{#if ceonotes}}
         <div class="row">
-          <div class="pay-info-row border-top">
-            <p>Testing notes section</p>
+          <div class="pay-info-row">
+            {{#if medianpay}}
+            <p class="ceo-note"> <span class="note">Note:</span> {{ceonotes}}</p>
+            {{else}}
+            <p>{{ceonotes}}</p>
+            {{/if}}
           </div>
         </div>
+        {{/if}}
 
       </div> <!--card text-->
       </div> <!--card body-->
@@ -272,7 +275,7 @@ googletag.cmd.push(function () {
   <div class="filter-cat">
     <div class="filter">
       <span class="filter-label">CEO Compensation
-      <select class="form-control cat1">
+      <select class="cat1">
         <option value="cat-all">All</option>
         <option value="cat-one">$0 - $1,000,000</option>
         <option value="cat-five">$1,000,000 - $5,000,000</option>
@@ -309,7 +312,17 @@ googletag.cmd.push(function () {
     <div class="filter">
       <span class="filter-label">Industry
       <select class="cat4">
-        <option>All</option>
+        <option value="cat-all">All</option>
+        <options value="cat-communications">Communications</options>
+        <option value="cat-consumer-discretionary">Consumer Discretionary</option>
+        <option value="cat-consumer-staples">Consumer Staples</option>
+        <option value="cat-energy">Energy</option>
+        <option value="cat-financials">Financials</option>
+        <option value="cat-health-care">Health Care</option>
+        <option value="cat-industrials">Industrials</option>
+        <option value="cat-materials">Materials</option>
+        <option value="cat-technology">Technology</option>
+        <option value="cat-utilities">Utilities</option>
       </select>
     </span>
     </div>

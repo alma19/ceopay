@@ -6,6 +6,8 @@ import './furniture';
 
 const HandlebarsIntl = require('handlebars-intl');
 
+
+
 $(document).ready(() => {
   $('.employee-compensation').css('width', '50%');
   $('#showAll').click(function(){
@@ -57,15 +59,27 @@ $(document).ready(() => {
     const teachercompensation = (52000 / maxEmployee) * 100;
     const policecompensation = (65956 / maxEmployee) * 100;
 
+    const employeeremainder = data.employeeratio % 10;
+    console.log(data.company, employeeremainder);
     // apending icons and chart bars
+
     for (let i = 0; i < medianemployees; i += 1) {
-      $('<i class="fas fa-user"></i>').appendTo($(`#card-${data.class} .employee`));
+      if (employeeremainder === 0) {
+        $('<span class="fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>'
+      ).appendTo($(`#card-${data.class} .employee`));
+      } else {
+        $('<span class="last fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+
+
+      }
     }
 
+
+    //
     if (employeecompensation !== 100) {
       $(`#card-${data.class} .employee-bar`).css('width', `${employeecompensation}%`);
     } else {
-      $(`#card-${data.class} .employee-bar`).css('width', '80%');
+      $(`#card-${data.class} .employee-bar`).css('width', '75%');
     }
 
     $(`#card-${data.class} .teacher-bar`).css('width', `${teachercompensation}%`);
@@ -117,17 +131,6 @@ $(document).ready(() => {
     // CHANGES
     // lets give each row an ceo an id number that we use for the id on the card
     const  ceos = data;
-    const ceoSort = data.slice().sort(function (a, b) {
-      return a.ceopay - b.ceopay;
-    });
-
-
-    // $.each(ceos, (k, v) => {
-    //   const cardHTML = cardTemplate(v);
-    //   $('.cards').append(cardHTML);
-    //
-    //   appendIcons(v);
-    // });
 
     $.each(ceos, (k, v) => {
       const cardHTML = cardTemplate(v);
@@ -153,12 +156,13 @@ $(document).ready(() => {
 
 
 
-  function filterCategory(cat1, cat2, cat3) {
+  function filterCategory(cat1, cat2, cat3, cat4) {
      // reset results list
-    $('.filter-cat-results .f-cat').removeClass('active');
+     $('.filter-cat-results .f-cat').removeClass('active');
 
     // the filtering in action for all criteria
-    let selector = '.f-cat';
+     let selector = '.f-cat';
+
 
     if (cat1 !== 'cat-all') {
       selector = `[data-cat=${cat1}]`;
@@ -170,15 +174,20 @@ $(document).ready(() => {
     //   selector = selector + '[data-cat3=' + cat3 + ']';
     // }
 
+    if (cat4 !== 'cat-all') {
+      selector = `${selector}[data-cat4=${cat4}]`;
+    }
+
     // show filter results
     $(selector).addClass('active');
+    console.log(selector);
   }
   // start by showing all items
   $('.filter-cat-results .f-cat').addClass('active');
 
     // call the filtering function when selects are changed
-  $('.filtering select').change(function () {
-    filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val());
+  $('.filtering select').change(() => {
+    filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val(), $('.filtering select.cat4').val());
 
     $('.cards').removeClass('hider');
     $('#showAll').addClass('no-show');
