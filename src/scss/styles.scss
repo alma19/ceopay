@@ -169,7 +169,6 @@ img {
 }
 
 .row{
-  margin-top: 5px;
   display: flex;
   flex-wrap: wrap;
   // justify-content: space-around;
@@ -280,7 +279,7 @@ img {
 }
 
 
-.employee-bar, .teacher-bar, .police-bar {
+.employee-bar, .teacher-bar, .police-bar, .ceo-bar, .avg-bar {
   background-color: $dmnblue;
   height: 1rem;
 }

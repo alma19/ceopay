@@ -7,14 +7,12 @@ import './furniture';
 const HandlebarsIntl = require('handlebars-intl');
 
 
-
 $(document).ready(() => {
   $('.employee-compensation').css('width', '50%');
-  $('#showAll').click(function(){
+  $('#showAll').click(function () {
     $(this).addClass('no-show');
     $('.cards').removeClass('hider');
   });
-
 
   handlebars.registerHelper('namePossessive', (name) => {
     const lastLetter = name.slice(-1);
@@ -50,50 +48,42 @@ $(document).ready(() => {
   // CHANGES
   // let's use the DRY principle here and create a function that appends our icons
   // so we can use it in both places
-  let maxEmployee = 0;
+  let ceoSum = 0;
+  let maxCeo = 0;
 
   function appendIcons(data) {
     // setting up the ratios
     const medianemployees = data.employeeratio / 10;
-    const employeecompensation = (data.medianpay / maxEmployee) * 100;
-    const teachercompensation = (52000 / maxEmployee) * 100;
-    const policecompensation = (65956 / maxEmployee) * 100;
-
     const employeeremainder = data.employeeratio % 10;
-    console.log(data.company, employeeremainder);
-    // apending icons and chart bars
+    const avg = (ceoSum / 100);
+    const ceoavg = (avg / maxCeo) * 100;
+    const ceocompensation = (data.ceopay / maxCeo) * 100;
 
+
+    // apending icons
     for (let i = 0; i < medianemployees; i += 1) {
       if (employeeremainder === 0) {
         $('<span class="fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>'
       ).appendTo($(`#card-${data.class} .employee`));
       } else {
         $('<span class="last fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
-
-
       }
     }
 
-
-    //
-    if (employeecompensation !== 100) {
-      $(`#card-${data.class} .employee-bar`).css('width', `${employeecompensation}%`);
-    } else {
-      $(`#card-${data.class} .employee-bar`).css('width', '75%');
-    }
-
-    $(`#card-${data.class} .teacher-bar`).css('width', `${teachercompensation}%`);
-
-    $(`#card-${data.class} .police-bar`).css('width', `${policecompensation}%`);
+    // appending charts
+    $(`#card-${data.class} .ceo-bar`).css('width', `${ceocompensation}%`);
+    $(`#card-${data.class} .avg-bar`).css('width', `${ceoavg}%`);
   } // function appendIcons
 
   function findMax(data) {
     for (let i = 0; i < data.length; i += 1) {
       // data[i].id = i;
       data[i].class = i;
-      if (data[i].medianpay >= maxEmployee) {
-        maxEmployee = data[i].medianpay;
+      if (data[i].ceopay >= maxCeo) {
+        maxCeo = data[i].ceopay;
       }
+
+      ceoSum += data[i].ceopay;
 
       // assigning ceopay attributes
       if (data[i].ceopay <= 1000000) {
@@ -130,7 +120,7 @@ $(document).ready(() => {
   function drawCards(data) {
     // CHANGES
     // lets give each row an ceo an id number that we use for the id on the card
-    const  ceos = data;
+    const ceos = data;
 
     $.each(ceos, (k, v) => {
       const cardHTML = cardTemplate(v);
@@ -142,15 +132,14 @@ $(document).ready(() => {
     // search cards by ceo and company
     let options = {
       valueNames: ['ceo-name', 'company']
-     };
+    };
 
     let ceoList = new List('ceo-list', options);
 
-    $('#ceo-list').on('keyup', function(){
+    $('#ceo-list').on('keyup', function () {
       $('.cards').removeClass('hider');
       $('#showAll').addClass('no-show');
     })
-
 
   } // function drawCArds
 
@@ -161,8 +150,7 @@ $(document).ready(() => {
      $('.filter-cat-results .f-cat').removeClass('active');
 
     // the filtering in action for all criteria
-     let selector = '.f-cat';
-
+    let selector = '.f-cat';
 
     if (cat1 !== 'cat-all') {
       selector = `[data-cat=${cat1}]`;

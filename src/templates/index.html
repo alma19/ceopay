@@ -161,35 +161,25 @@ googletag.cmd.push(function () {
 
       {{#if medianpay}}
       <div class="row">
-          <div class="pay-info-row">
-            <p><strong>{{company}} Employees and Dallas Civil Servants</strong></p>
-            <p>Text here about how we're comparing the median employee pays of the employees to dallas civil servants.</p>
-          </div>
+        <div class="pay-info-row">
+          <p><strong>In Comparison</strong></p>
+          <p>The average of the top 100 CEOs compensation in DFW is <span class="note">$5,525,274.84</span></p>
         </div>
+      </div>
 
-
-        <div class="row">
-          <div class="pay-info-row need-flex no-padding">
-            <p class="label"> {{company}}</p>
-            <span class="employee-bar"></span>
-            </div>
-          </div>
-
-
-        <div class="row">
-          <div class="pay-info-row need-flex no-padding">
-            <p class="label">DISD: $52,000</p>
-            <span class="teacher-bar"></span>
-          </div>
+      <div class="row">
+        <div class="pay-info-row need-flex">
+          <p class="label">{{company}} CEO Compensation</p>
+          <span class="ceo-bar"></span>
         </div>
+      </div>
 
-
-        <div class="row">
-          <div class="pay-info-row need-flex">
-            <p class="label">DPD: $65,956</p>
-            <span class="police-bar"></span>
-          </div>
+      <div class="row">
+        <div class="pay-info-row need-flex">
+          <p class="label">Average CEO Compensation</p>
+          <span class="avg-bar"></span>
         </div>
+      </div>
 
         <div class="border-bottom"></div>
         {{/if}}
