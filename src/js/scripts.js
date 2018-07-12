@@ -8,7 +8,8 @@ const HandlebarsIntl = require('handlebars-intl');
 
 
 $(document).ready(() => {
-  $('.employee-compensation').css('width', '50%');
+  // doesn't look like there's a selector in the html that matches this. possibly old code?:
+  // $('.employee-compensation').css('width', '50%');
   $('#showAll').click(function () {
     $(this).addClass('no-show');
     $('.cards').removeClass('hider');
@@ -51,11 +52,16 @@ $(document).ready(() => {
   let ceoSum = 0;
   let maxCeo = 0;
 
+  // need to get an accurate count of how many ceos we have pay for to get an accurate average
+  let ceoPayCount = 0;
+
   function appendIcons(data) {
     // setting up the ratios
+    console.log(data);
     const medianemployees = data.employeeratio / 10; // employeeratio
     const employeeremainder = data.employeeratio % 10;
-    const avg = (ceoSum / 100);
+    // calculating the average based only on ceos who's compensation is reported
+    const avg = (ceoSum / ceoPayCount);
     const ceoavg = (avg / maxCeo) * 100;
     const ceocompensation = (data.ceopay / maxCeo) * 100;
 
@@ -64,14 +70,36 @@ $(document).ready(() => {
       $(`<span class="last${employeeremainder} fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>`).appendTo($(`#card-${data.class} .employee`));
     }
 
-
-
-
-
     // appending charts
     $(`#card-${data.class} .ceo-bar`).css('width', `${ceocompensation}%`);
     $(`#card-${data.class} .avg-bar`).css('width', `${ceoavg}%`);
   } // function appendIcons
+
+
+  const ceoScale = {
+    one: [0, 1000000],
+    five: [1000000, 5000000],
+    ten: [5000000, 10000000],
+    fifteen: [10000000, 15000000],
+    twenty: [15000000, 20000000],
+  };
+
+  const medianScale = {
+    fifty: [0, 50000],
+    onehundred: [50000, 1000000],
+    twohundred: [100000, 2000000],
+  };
+
+  function checkScale(pay, scale, max) {
+    let x = max;
+    $.each(scale, (key, value) => {
+      if (pay > value[0] && pay <= value[1]) {
+        x = key;
+      }
+    });
+
+    return x;
+  }
 
   function findMax(data) {
     for (let i = 0; i < data.length; i += 1) {
@@ -83,31 +111,17 @@ $(document).ready(() => {
 
       ceoSum += data[i].ceopay;
 
-      // assigning ceopay attributes
-      if (data[i].ceopay <= 1000000) {
-        data[i].ceo = 'one';
-      } if (data[i].ceopay >= 1000000 && data[i].ceopay <= 5000000) {
-        data[i].ceo = 'five';
-      } if (data[i].ceopay >= 5000000 && data[i].ceopay <= 10000000) {
-        data[i].ceo = 'ten';
-      } if (data[i].ceopay >= 10000000 && data[i].ceopay <= 15000000) {
-        data[i].ceo = 'fifteen';
-      } if (data[i].ceopay >= 15000000 && data[i].ceopay <= 20000000) {
-        data[i].ceo = 'twenty';
-      } if (data[i].ceopay >= 20000000) {
-        data[i].ceo = 'twentyplus';
+      // add to our ceoPayCount only if a ceo has compensation reported
+      if (data[i].ceopay > 0) {
+        ceoPayCount += 1;
       }
 
-      // assigning median pay attribute
-      if (data[i].medianpay <= 50000) {
-        data[i].employee = 'fifty';
-      } if (data[i].medianpay >= 50000 && data[i].medianpay <= 1000000) {
-        data[i].employee = 'onehundred';
-      } if (data[i].medianpay >= 100000 && data[i].medianpay <= 2000000) {
-        data[i].employee = 'twohundred';
-      } if (data[i].medianpay >= 200000) {
-        data[i].employee = 'twohundredplus';
-      }
+      // note, on the comparisions below, make sure to not check if the preceding comparision
+      // is equal to the greater number, as you're making the same check on the next comparision
+      // on the low number
+      data[i].ceo = checkScale(data[i].ceopay, ceoScale, 'twentyplus');
+      data[i].employee = checkScale(data[i].medianpay, medianScale, 'twohundredplus');
+
     } // for loop
     drawCards(data);
     appendIcons(data);
