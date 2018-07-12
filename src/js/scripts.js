@@ -65,10 +65,43 @@ $(document).ready(() => {
       if (employeeremainder === 0) {
         $('<span class="fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>'
       ).appendTo($(`#card-${data.class} .employee`));
-      } else {
-        $('<span class="last fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+    } if (employeeremainder === 1) {
+        $('<span class="last one fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
+      if (employeeremainder === 2) {
+        $('<span class="last two fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
+      if (employeeremainder === 3) {
+        $('<span class="last three fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
+      if (employeeremainder === 4) {
+        $('<span class="last four fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
+
+      if (employeeremainder === 5) {
+        $('<span class="last five fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
+
+      if (employeeremainder === 6) {
+        $('<span class="last six fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
+
+      if (employeeremainder === 7) {
+        $('<span class="last seven fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
+
+      if (employeeremainder === 8) {
+        $('<span class="last eight fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
+
+      if (employeeremainder === 9) {
+        $('<span class="last nine fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
       }
     }
+
+    const remainder = employeeremainder * 10;
+
+
 
     // appending charts
     $(`#card-${data.class} .ceo-bar`).css('width', `${ceocompensation}%`);
