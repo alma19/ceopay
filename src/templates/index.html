@@ -149,7 +149,7 @@ googletag.cmd.push(function () {
         <div class="row"> <!--ceo and employee pay row-->
             {{#if medianpay}}
           <div class="pay-info-row border-bottom">
-              <p><strong>Median Employee Compsensation: ${{formatNumber medianpay}}</strong></p>
+              <p><strong>Median Employee Compensation: ${{formatNumber medianpay}}</strong></p>
               <p>{{namePossessive ceoname}} compensation could pay for <strong>{{employeeratio}}</strong> {{company}} median employee salaries.</p>
               <div class="employee icons"></div>
               <p class="icon-info">1 icon is equal to 10 employees</p>
@@ -159,39 +159,31 @@ googletag.cmd.push(function () {
 
         </div>
 
-      {{#if medianpay}}
       <div class="row">
         <div class="pay-info-row">
-          <p><strong>In Comparison</strong></p>
-          <p>The average of the top 100 CEOs compensation in DFW is <span class="note">$5,525,274.84</span></p>
+          <p>Comparing {{company}} CEO compensation vs. the average of the top 100 D-FW CEOs:</p>
         </div>
       </div>
 
       <div class="row">
-        <div class="pay-info-row need-flex">
-          <p class="label">{{company}} CEO Compensation</p>
+        <div class="pay-info-row need-flex bar-container">
+          <p class="label">{{company}} CEO: <strong>${{formatNumber ceopay}}</strong></p>
           <span class="ceo-bar"></span>
         </div>
       </div>
 
       <div class="row">
-        <div class="pay-info-row need-flex">
-          <p class="label">Average CEO Compensation</p>
+        <div class="pay-info-row need-flex bar-container">
+          <p class="label">Top 100 avg: <strong>$5,525,274.84</strong></p>
           <span class="avg-bar"></span>
         </div>
       </div>
 
-        <div class="border-bottom"></div>
-        {{/if}}
 
         {{#if ceonotes}}
         <div class="row">
-          <div class="pay-info-row">
-            {{#if medianpay}}
+          <div class="pay-info-row ceo-note-row">
             <p class="ceo-note"> <span class="note">Note:</span> {{ceonotes}}</p>
-            {{else}}
-            <p>{{ceonotes}}</p>
-            {{/if}}
           </div>
         </div>
         {{/if}}
@@ -255,7 +247,7 @@ googletag.cmd.push(function () {
     <h4>Top 100 CEOs in North Texas</h4>
   </div>
   <div class="interactive-intro-text">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet felis ligula, eu commodo tortor sagittis eget. Sed tempus augue vitae placerat porttitor. </p>
+    <p class="chatter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet felis ligula, eu commodo tortor sagittis eget. Sed tempus augue vitae placerat porttitor. </p>
   </div>
 </div>
 
@@ -337,7 +329,7 @@ googletag.cmd.push(function () {
 
 
 <div class="filter-options show-all">
-    <p id="showAll">SHOW ALL</p>
+    <button class="int-btn" id="showAll">SHOW ALL CEOs</button>
 </div>
 
 <!-- <div class="filter-cat-results">
