@@ -128,9 +128,6 @@ googletag.cmd.push(function () {
   <div class="card card-{{class}}" id="card-{{class}}"  >
     <div class="card-body">
       <div class="card-title clearfix">
-        <div class="compare">
-          <!-- <i class="fas fa-plus-circle fa-2x"></i> -->
-        </div>
         {{#if multipleceos}}
           {{multipleImages photo ceoname}}
         {{else}}
@@ -174,7 +171,7 @@ googletag.cmd.push(function () {
 
       <div class="row">
         <div class="pay-info-row need-flex bar-container">
-          <p class="label">Top 100 avg: <strong>$5,525,274.84</strong></p>
+          <p class="label">Top 100 avg: <strong class="avg"></strong></p>
           <span class="avg-bar"></span>
         </div>
       </div>
@@ -256,9 +253,9 @@ googletag.cmd.push(function () {
 
   <div class="filter-cat">
     <div class="filter">
-      <span class="filter-label">CEO Compensation
+      <!-- <span class="filter-label">CEO Compensation</span> -->
       <select class="cat1">
-        <option value="cat-all">All</option>
+        <option value="cat-all">All CEO Compensation</option>
         <option value="cat-one">$0 - $1,000,000</option>
         <option value="cat-five">$1,000,000 - $5,000,000</option>
         <option value="cat-ten">$5,000,000 - $10,000,000</option>
@@ -266,27 +263,25 @@ googletag.cmd.push(function () {
         <option value="cat-twenty">$15,000,000 - $20,000,000</option>
         <option value="cat-twentyplus">$20,000,000 +</option>
       </select>
-      </span>
     </div>
 
 
     <div class="filter">
-      <span class="filter-label">Median Employee Compensation
+      <!-- <span class="filter-label">Median Employee Compensation</span> -->
       <select class="cat2">
-        <option value="cat-all">All</option>
+        <option value="cat-all">All Median Employee Compensation</option>
         <option value="cat-fifty">$0 - $50,000</option>
         <option value="cat-onehundred">$50,000 - $100,000</option>
         <option value="cat-twohundred">$100,000 - $200,000</option>
         <option value ="cat-twohundredplus">$200,000 + </option>
       </select>
-    </span>
     </div>
 
 
     <div class="filter">
-      <span class="filter-label">Industry
+      <!-- <span class="filter-label">Sector</span> -->
       <select class="cat3">
-        <option value="cat-all">All</option>
+        <option value="cat-all">All Sectors</option>
         <options value="cat-communications">Communications</options>
         <option value="cat-consumer-discretionary">Consumer Discretionary</option>
         <option value="cat-consumer-staples">Consumer Staples</option>
@@ -298,7 +293,6 @@ googletag.cmd.push(function () {
         <option value="cat-technology">Technology</option>
         <option value="cat-utilities">Utilities</option>
       </select>
-    </span>
     </div>
 
   </div>

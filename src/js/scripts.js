@@ -5,6 +5,7 @@ import handlebars from 'handlebars';
 import './furniture';
 
 const HandlebarsIntl = require('handlebars-intl');
+const numeral = require('numeral');
 
 
 $(document).ready(() => {
@@ -62,6 +63,7 @@ $(document).ready(() => {
     const employeeremainder = data.employeeratio % 10;
     // calculating the average based only on ceos who's compensation is reported
     const avg = (ceoSum / ceoPayCount);
+    const avgformat = numeral(avg).format('$0,0.00');
     const ceoavg = (avg / maxCeo) * 100;
     const ceocompensation = (data.ceopay / maxCeo) * 100;
 
@@ -73,6 +75,10 @@ $(document).ready(() => {
     // appending charts
     $(`#card-${data.class} .ceo-bar`).css('width', `${ceocompensation}%`);
     $(`#card-${data.class} .avg-bar`).css('width', `${ceoavg}%`);
+
+    // apend average
+    $('.avg').text(avgformat);
+    // top 100 avg:
   } // function appendIcons
 
 
