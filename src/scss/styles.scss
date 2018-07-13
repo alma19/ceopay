@@ -103,7 +103,6 @@ select {
 
 /* card styles*/
 .cards {
-  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -132,12 +131,12 @@ select {
 
 li {
   height: 100%;
+  width: 600px;
 }
 
 .card {
-  width: 550px;
   display: flex;
-  margin: 0 2rem 2rem 0;
+  margin: 0 3rem 3rem 3rem;
   flex-direction: column;
   border: 1px solid #000;
   border-radius: .50rem;

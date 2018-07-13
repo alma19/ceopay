@@ -122,7 +122,7 @@ googletag.cmd.push(function () {
 <script id="ceo-card-template" type="text/x-handlebars-template">
 
 
-<li class="f-cat" data-cat="cat-{{ceo}}" data-cat2="cat-{{employee}}" data-cat4="cat-{{sectorfilter}}">
+<li class="f-cat" data-cat="cat-{{ceo}}" data-cat2="cat-{{employee}}" data-cat3="cat-{{sectorfilter}}">
 
 
   <div class="card card-{{class}}" id="card-{{class}}"  >
@@ -284,16 +284,8 @@ googletag.cmd.push(function () {
 
 
     <div class="filter">
-      <span class="filter-label">Company Revenue
-      <select class="cat3">
-        <option>All</option>
-      </select>
-    </span>
-    </div>
-
-    <div class="filter">
       <span class="filter-label">Industry
-      <select class="cat4">
+      <select class="cat3">
         <option value="cat-all">All</option>
         <options value="cat-communications">Communications</options>
         <option value="cat-consumer-discretionary">Consumer Discretionary</option>

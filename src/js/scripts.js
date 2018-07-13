@@ -157,7 +157,7 @@ $(document).ready(() => {
 
 
 
-  function filterCategory(cat1, cat2, cat3, cat4) {
+  function filterCategory(cat1, cat2, cat3) {
      // reset results list
      $('.filter-cat-results .f-cat').removeClass('active');
 
@@ -174,8 +174,8 @@ $(document).ready(() => {
     //   selector = selector + '[data-cat3=' + cat3 + ']';
     // }
 
-    if (cat4 !== 'cat-all') {
-      selector = `${selector}[data-cat4=${cat4}]`;
+    if (cat3 !== 'cat-all') {
+      selector = `${selector}[data-cat3=${cat3}]`;
     }
 
     // show filter results
@@ -187,7 +187,7 @@ $(document).ready(() => {
 
     // call the filtering function when selects are changed
   $('.filtering select').change(() => {
-    filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val(), $('.filtering select.cat4').val());
+    filterCategory($('.filtering select.cat1').val(), $('.filtering select.cat2').val(), $('.filtering select.cat3').val());
 
     $('.cards').removeClass('hider');
     $('#showAll').addClass('no-show');
