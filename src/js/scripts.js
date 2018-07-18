@@ -69,7 +69,11 @@ $(document).ready(() => {
 
     // apending icons
     for (let i = 0; i < medianemployees; i += 1) {
-      $(`<span class="last${employeeremainder} fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>`).appendTo($(`#card-${data.class} .employee`));
+      if ((i + 1) > (medianemployees - 1)) {
+        $(`<span class="last${employeeremainder} fa-stack"> <i class="fas fa-user fa-stack-1x"></i> </span>`).appendTo($(`#card-${data.class} .employee`));
+      } else {
+        $('<span class="fa-stack"> <i class="fas fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
     }
 
     // appending charts
