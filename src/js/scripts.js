@@ -47,9 +47,7 @@ $(document).ready(() => {
   const cardSource = document.getElementById('ceo-card-template').innerHTML;
   const cardTemplate = handlebars.compile(cardSource);
 
-  // CHANGES
-  // let's use the DRY principle here and create a function that appends our icons
-  // so we can use it in both places
+
   let ceoSum = 0;
   let maxCeo = 0;
 
@@ -58,19 +56,23 @@ $(document).ready(() => {
 
   function appendIcons(data) {
     // setting up the ratios
-    console.log(data);
     const medianemployees = data.employeeratio / 10; // employeeratio
     const employeeremainder = data.employeeratio % 10;
     // calculating the average based only on ceos who's compensation is reported
+    console.log(`ceoSum ${ceoSum}`)
     const avg = (ceoSum / ceoPayCount);
     const avgformat = numeral(avg).format('$0,0.00');
     const ceoavg = (avg / maxCeo) * 100;
-    const ceocompensation = (data.ceopay / maxCeo) * 100;
+    const ceocompensation = (data.ceopay2017 / maxCeo) * 100;
 
     // apending icons
     for (let i = 0; i < medianemployees; i += 1) {
-      $(`<span class="last${employeeremainder} fa-stack"> <i class="fas fa-user fa-stack-1x"></i> <i class="far fa-user fa-stack-1x"></i> </span>`).appendTo($(`#card-${data.class} .employee`));
+    if ((i + 1) > (medianemployees - 1)) {
+      $(`<span class="last${employeeremainder} fa-stack"> <i class="fas fa-user fa-stack-1x"></i> </span>`).appendTo($(`#card-${data.class} .employee`));
+    } else {
+      $('<span class="fa-stack"> <i class="fas fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
     }
+  }
 
     // appending charts
     $(`#card-${data.class} .ceo-bar`).css('width', `${ceocompensation}%`);
@@ -111,21 +113,25 @@ $(document).ready(() => {
     for (let i = 0; i < data.length; i += 1) {
       // data[i].id = i;
       data[i].class = i;
-      if (data[i].ceopay >= maxCeo) {
-        maxCeo = data[i].ceopay;
+      if (data[i].ceopay2017 >= maxCeo) {
+        maxCeo = data[i].ceopay2017;
       }
 
-      ceoSum += data[i].ceopay;
+      if (isNaN(data[i].ceopay2017)) {
+        continue;
+      }
+
+      ceoSum += data[i].ceopay2017;
 
       // add to our ceoPayCount only if a ceo has compensation reported
-      if (data[i].ceopay > 0) {
+      if (data[i].ceopay2017 > 0) {
         ceoPayCount += 1;
       }
 
       // note, on the comparisions below, make sure to not check if the preceding comparision
       // is equal to the greater number, as you're making the same check on the next comparision
       // on the low number
-      data[i].ceo = checkScale(data[i].ceopay, ceoScale, 'twentyplus');
+      data[i].ceo = checkScale(data[i].ceopay2017, ceoScale, 'twentyplus');
       data[i].employee = checkScale(data[i].medianpay, medianScale, 'twohundredplus');
 
     } // for loop
@@ -186,7 +192,7 @@ $(document).ready(() => {
 
     // show filter results
     $(selector).addClass('active');
-    console.log(selector);
+    // console.log(selector);
   }
   // start by showing all items
   $('.filter-cat-results .f-cat').addClass('active');
