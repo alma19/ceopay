@@ -42,6 +42,7 @@ $(document).ready(() => {
     return new handlebars.SafeString(multiImageMarkup);
   });
 
+
   HandlebarsIntl.registerWith(handlebars);
 
   const cardSource = document.getElementById('ceo-card-template').innerHTML;
@@ -59,7 +60,6 @@ $(document).ready(() => {
     const medianemployees = data.employeeratio / 10; // employeeratio
     const employeeremainder = data.employeeratio % 10;
     // calculating the average based only on ceos who's compensation is reported
-    console.log(`ceoSum ${ceoSum}`)
     const avg = (ceoSum / ceoPayCount);
     const avgformat = numeral(avg).format('$0,0.00');
     const ceoavg = (avg / maxCeo) * 100;
@@ -123,10 +123,15 @@ $(document).ready(() => {
 
       ceoSum += data[i].ceopay2017;
 
+
+      // console.log(`ceoSum ${data[i].company } ${ceoSum}`)
+
       // add to our ceoPayCount only if a ceo has compensation reported
-      if (data[i].ceopay2017 > 0) {
+      if (data[i].ceopay2017 !== undefined) {
         ceoPayCount += 1;
       }
+
+      // console.log(`ceoPayCount ${ceoPayCount}`)
 
       // note, on the comparisions below, make sure to not check if the preceding comparision
       // is equal to the greater number, as you're making the same check on the next comparision
