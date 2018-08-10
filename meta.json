@@ -6,16 +6,18 @@
   "shareText": "<Text>",
   "tweetText": "<Text>",
   "publishYear": 2018,
-  "publishDate": "2018-06-15T00:00:00Z",
+  "publishDate": "2018-08-15T00:00:00Z",
   "url": "https://interactives.dallasnews.com/2018/ceo-pay/",
   "authors": [
     "<Author1>",
     "<Author2>"
   ],
-  "desk": "<Desk>",
-  "section": "<Section>",
+  "desk": "business",
+  "section": "ceo-pay",
   "keywords": [
     "interactives",
+    "business",
+
     "dallas",
     "dallas news",
     "dfw news",
@@ -23,10 +25,10 @@
     "dallas morning news",
     "dallas morning news newspaper"
   ],
-  "imgURL": "https://interactives.dallasnews.com/2018/ceo-pay/undefined",
-  "imgWidth": "<Width - w/out \"px\">",
-  "imgHeight": "<Height - w/out \"px\">",
-  "sectionTwitter": "<handle - w/out \"@\">",
+  "imgURL": "https://interactives.dallasnews.com/2018/ceo-pay/images/_share.jpg",
+  "imgWidth": "1200",
+  "imgHeight": "630",
+  "sectionTwitter": "DMNbiz",
   "authorTwitter": "<handle - w/out \"@\">",
   "authorFBProfile": "<Url for author FB profile. Leave empty string if none>"
 }
