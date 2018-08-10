@@ -21,7 +21,7 @@
 .interactive-intro {
   font-family: $sans;
   font-size: 1.7rem;
-  width: 90%;
+  width: 100%;
   margin: 4.8rem auto 0;
   .interactive-title {
     font-weight: bold;
@@ -36,7 +36,7 @@
   flex-wrap: wrap;
   font-family: $sans;
   font-size: 1.3rem;
-  width: 90%;
+  width: 100%;
   p {
     background-color: $black235;
     padding: 1rem;
@@ -207,7 +207,8 @@ img {
 }
 
 .ceo-note {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
   padding-bottom: 0 !important;
 }
 
