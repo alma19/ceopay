@@ -67,7 +67,7 @@ $(document).ready(() => {
 
     const employeeRatio = Math.round(data.employeeratio);
 
-    console.log(data.ceopay2017, data.ceoname);
+    console.log(data.medianpay, data.company);
 
     // apending icons
     for (let i = 0; i < medianemployees; i += 1) {
@@ -102,15 +102,17 @@ $(document).ready(() => {
 
   const medianScale = {
     fifty: [0, 50000],
-    onehundred: [50000, 1000000],
-    twohundred: [100000, 2000000],
+    onehundred: [50000, 100000],
+    twohundred: [100000, 200000],
   };
 
   function checkScale(pay, scale, max) {
     let x = max;
     $.each(scale, (key, value) => {
-      if (pay > value[0] && pay <= value[1]) {
+      if (pay >= value[0] && pay <= value[1]) {
         x = key;
+      } else if (pay === undefined) {
+        x = 0;
       }
     });
 
