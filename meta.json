@@ -9,15 +9,30 @@
   "publishDate": "2018-08-15T00:00:00Z",
   "url": "https://interactives.dallasnews.com/2018/ceo-pay/",
   "authors": [
-    "<Author1>",
-    "<Author2>"
+    "Aidan Quigley"
   ],
   "desk": "business",
   "section": "ceo-pay",
   "keywords": [
     "interactives",
     "business",
-
+    "dfw",
+    "james reid-anderson",
+    "john m. duffey",
+    "marvin ellison",
+    "mark zoradi",
+    "alasdair james",
+    "keh shew lu",
+    "rick wessel",
+    "perry sook",
+    "carl rubin"
+    "randall stephenson"
+    "at&t",
+    "nexstar media group",
+    "kimberly-clark",
+    "texas instruments"
+    "six flags",
+    "exxon mobil",
     "dallas",
     "dallas news",
     "dfw news",
@@ -29,6 +44,6 @@
   "imgWidth": "1200",
   "imgHeight": "630",
   "sectionTwitter": "DMNbiz",
-  "authorTwitter": "<handle - w/out \"@\">",
-  "authorFBProfile": "<Url for author FB profile. Leave empty string if none>"
+  "authorTwitter": "quigleyaidan",
+  "authorFBProfile": ""
 }

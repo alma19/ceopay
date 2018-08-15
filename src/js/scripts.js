@@ -57,26 +57,34 @@ $(document).ready(() => {
 
   function appendIcons(data) {
     // setting up the ratios
-    const medianemployees = data.employeeratio / 10; // employeeratio
-    const employeeremainder = data.employeeratio % 10;
+    const medianemployees = Math.round(data.employeeratio) / 10; // employeeratio
+    const employeeremainder = Math.round(data.employeeratio) % 10;
     // calculating the average based only on ceos who's compensation is reported
     const avg = (ceoSum / ceoPayCount);
     const avgformat = numeral(avg).format('$0,0.00');
     const ceoavg = (avg / maxCeo) * 100;
     const ceocompensation = (data.ceopay2017 / maxCeo) * 100;
 
+    const employeeRatio = Math.round(data.employeeratio);
+
+    console.log(data.ceopay2017, data.ceoname);
+
     // apending icons
     for (let i = 0; i < medianemployees; i += 1) {
-    if ((i + 1) > (medianemployees - 1)) {
-      $(`<span class="last${employeeremainder} fa-stack"> <i class="fas fa-user fa-stack-1x"></i> </span>`).appendTo($(`#card-${data.class} .employee`));
-    } else {
-      $('<span class="fa-stack"> <i class="fas fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      if ((i + 1) > (medianemployees - 1)) {
+        $(`<span class="last${employeeremainder} fa-stack"> <i class="fas fa-user fa-stack-1x"></i> </span>`).appendTo($(`#card-${data.class} .employee`));
+      } else {
+        $('<span class="fa-stack"> <i class="fas fa-user fa-stack-1x"></i> </span>').appendTo($(`#card-${data.class} .employee`));
+      }
     }
-  }
 
     // appending charts
     $(`#card-${data.class} .ceo-bar`).css('width', `${ceocompensation}%`);
     $(`#card-${data.class} .avg-bar`).css('width', `${ceoavg}%`);
+
+    // appending rounded employee ratio
+
+    $(`#card-${data.class} .ratio`).text(employeeRatio);
 
     // apend average
     $('.avg').text(avgformat);
@@ -123,8 +131,6 @@ $(document).ready(() => {
 
       ceoSum += data[i].ceopay2017;
 
-
-      // console.log(`ceoSum ${data[i].company } ${ceoSum}`)
 
       // add to our ceoPayCount only if a ceo has compensation reported
       if (data[i].ceopay2017 !== undefined) {
