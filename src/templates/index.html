@@ -137,7 +137,7 @@ googletag.cmd.push(function () {
           <div class="ceo-info">
             <h4 class="ceo-name">{{ceoname}}</h4>
             <h6><span class="company">{{company}}</span> {{# if sector }}({{sector}}){{/if}}</h6>
-            {{#if ceopay2017}}<h6>Compensation:  <span class="ceocomp">${{formatNumber ceopay2017}} </span></h6>{{/if}}
+            {{#if ceopay2017 includeZero=true}}<h6>Compensation:  <span class="ceocomp">${{formatNumber ceopay2017}} </span></h6>{{/if}}
             <!-- <h6>Company Revenue: ${{revenues}}</h6> -->
           </div>
       </div>
@@ -156,7 +156,7 @@ googletag.cmd.push(function () {
 
         </div>
 
-      {{#if ceopay2017}}
+      {{#if ceopay2017 includeZero=true}}
       <div class="row">
         <div class="pay-info-row">
           <p>Comparing {{company}} CEO compensation vs. the average of the top 100 D-FW CEOs:</p>
