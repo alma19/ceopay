@@ -130,7 +130,7 @@ select {
 }
 
 .cards li {
-  flex: 1 1 auto;
+  // flex: 1 1 auto;
   width: calc(50% - 20px);
   display: flex;
   margin: 0 20px 4.8rem 0;
@@ -369,6 +369,7 @@ h4 {
 
 .fa-stack {
   width: 2rem;
+  margin-bottom: -0.5rem;
 }
 
 

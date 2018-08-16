@@ -83,8 +83,7 @@ $(document).ready(() => {
     $(`#card-${data.class} .avg-bar`).css('width', `${ceoavg}%`);
 
     // appending rounded employee ratio
-
-    $(`#card-${data.class} .ratio`).text(employeeRatio);
+    $(`#card-${data.class} .ratio`).text(numeral(employeeRatio).format('0,0'));
 
     // apend average
     $('.avg').text(avgformat);
