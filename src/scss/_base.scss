@@ -178,6 +178,7 @@ III. CONTENT HEADER
 
 #content-header {
   position: relative;
+  margin-bottom: 4.8rem;
 }
 #content-header img {
   width: 100%;
@@ -233,7 +234,32 @@ V. STORY HEAD, BYLINES AND INTRO
   margin: 4.8rem auto 2.4rem auto;
   text-align: center;
   color: #212121;
-  max-width: 1000px;
+  width: 700px;
+  position: absolute;
+  top: calc(81vw / 2);
+  margin-top: -150px;
+  left: 50%;
+  margin-left: -350px;
+  background-color: rgba(white, .90);
+  padding: 2.4rem;
+  .fa {
+    @include type(2.4rem, 3rem, 0);
+  }
+  @media (max-height: 81vw) {
+   top: 50vh;
+  }
+  @media (max-width: 1000px) {
+    position: relative;
+    top: auto;
+    margin-top: 0;
+    left: auto;
+    margin-left: 0;
+    margin: 4.8rem auto 0;
+    padding: 0;
+    .fa {
+      display: none;
+    }
+  }
 }
 #story-head h1 {
     color: #323232;
@@ -241,11 +267,13 @@ V. STORY HEAD, BYLINES AND INTRO
   letter-spacing: -.2rem;
   line-height: 7.2rem;
   margin-bottom: 1.2rem;
+  font-family: $serif;
 }
 #story-head h2 {
     color: #323232;
   font-size: 3.2rem;
   line-height: 3.6rem;
+  font-family: $serif;
 }
 #story-head h3 {
   font-family: Montserrat, 'Gotham A', 'Gotham B', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
@@ -358,7 +386,7 @@ VI. IMAGE, WIDE, FULL AND INLINE BLOCKS
   font-size: 1.3rem;
   line-height: 1.8rem;
   color: $black66;
-  font-weight: 100;
+  font-weight: 400;
 }
 .image-block {
   width: 100%;
