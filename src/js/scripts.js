@@ -67,7 +67,7 @@ $(document).ready(() => {
 
     const employeeRatio = Math.round(data.employeeratio);
 
-    console.log(data.medianpay, data.company);
+    // console.log(data.medianpay, data.company);
 
     // apending icons
     for (let i = 0; i < medianemployees; i += 1) {
