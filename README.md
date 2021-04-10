@@ -1,4 +1,12 @@
-# interactive_ceo-pay
+# Ceo Pay Interactive
+
+I worked with a fellow intern to create an interactive of the top CEOs in the Dallas Fort-Worth area. I taught myself to use Python/Pandas so I could perform data analysis and provide him with numbers for his story. 
+
+[Interactive](https://interactives.dallasnews.com/2018/dfw-top-ceos/)
+[Data Analysis](https://github.com/alma19/dmnprojects/blob/master/ceo-analysis/ceo-numbers.ipynb)
+
+![ceopay1](https://github.com/alma19/ceopay/blob/master/ceopay1.png?raw=true)
+![ceopay2](https://github.com/alma19/ceopay/blob/master/ceopay2.png?raw=true)
 
 This is an interactive presentation graphic built using the [`dmninteractives` Yeoman generator](https://github.com/DallasMorningNews/generator-dmninteractives).
 
