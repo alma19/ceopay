@@ -13,7 +13,7 @@
     "browserify": "^14.0.0",
     "deline": "^1.0.4",
     "event-stream": "^3.3.4",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-awspublish": "^3.0.1",
     "gulp-batch": "^1.0.5",
     "gulp-changed": "^2.0.0",
